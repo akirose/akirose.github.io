@@ -1,51 +1,36 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-    {% include meta.html %}
+<head>
+  {% include meta.html %}
+  <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+  <link rel="stylesheet" media="screen" type="text/css" href="{{ site.baseurl }}/style.css" />
+  <link rel="stylesheet" media="print" type="text/css" href="{{ site.baseurl }}/print.css" />
+  <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
 
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+  <style type="text/css">
+    #se { display: none; }
+  </style>
+  <script type="text/javascript" src="{{ site.baseurl }}/jquery-1.8.0.min.js"></script>
+  <script type="text/javascript" src="{{ site.baseurl }}/jquery-simplicity.js"></script>
+  <script type="text/javascript">
+    /* loading screen */
+        $(window).load(function() {
+          $("div#overlay").fadeOut(300);
+          $("#se").fadeIn(600);
+        });
+    </script>
+</head>
 
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+<body>
+<div class="overlay" id="overlay">
+  <img src="{{ site.avatar }}" alt="Now is loading..." />
+</div>
+<div class="fixed" id="se">
+{{ content }}
+</div>
+</body>
 
-    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
-  </head>
-
-  <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
-
-          <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-          </div>
-
-          <nav>
-            <a href="{{ site.baseurl }}/">Blog</a>
-            <a href="{{ site.baseurl }}/about">About</a>
-          </nav>
-        </header>
-      </div>
-    </div>
-
-    <div id="main" role="main" class="container">
-      {{ content }}
-    </div>
-
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
-      </div>
-    </div>
-
-    {% include analytics.html %}
-  </body>
 </html>
+
+
