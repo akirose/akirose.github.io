@@ -5,7 +5,7 @@ layout: default
 {% for post in site.posts %}
 <h2 class="postTitle"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
 <div class="bx_meta">
-  <p class="postMeta">October 16 in category <strong>Tip</strong> by Aki_Rose</p>
+  <p class="postMeta">Written on {{ post.date | date: "%B %e, %Y" }}</p>
 </div>
 <div class="se_contents">
    {{ post.excerpt }}
