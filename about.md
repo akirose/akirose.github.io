@@ -4,7 +4,8 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+{{ site.name }}
+{{ site.description }}
 
 # Header 1 #
 ## Header 2 ##

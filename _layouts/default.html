@@ -29,8 +29,8 @@
 <div class="fixed" id="se">
   <div id="bgGlow">
     <div class="logo">
-      <a href="" class="logo">Simplicity</a><br />
-      <span class="home_url"><a href="">http://akirose.nweaver.com</a></span>
+      <a href="{{ site.baseurl }}/" class="logo">{{ site.name }}</a><br />
+      <span class="home_url"><a href="">http://akirose.github.io</a></span>
     </div>
   </div>
   <div class="ec" id="container">
@@ -45,8 +45,8 @@
       </div>
       <hr />
       <ul class="globalMenu">
-        <li><a title="프로필" href="/about">Profile</a></li>
-        <li><a title="블로그" href="/blog">Blog</a></li>
+        <li><a title="프로필" href="{{ site.baseurl }}/about">Profile</a></li>
+        <li><a title="블로그" href="{{ site.baseurl }}/">Blog</a></li>
       </ul>
     </div>
     <hr />
@@ -63,12 +63,14 @@
     </div>
     <hr />
     <div id="footer">
+      {% include svg-icons.html %}
     </div>
     <div id="bottomMenu">
       <p class="copyright">Copyright 2009-2016 Simplicity. All right reserved. All logos used on this page are the property of their respective trademark owners.</p>
     </div>
   </div>
 </div>
+{% include analytics.html %}
 </body>
 
 </html>
