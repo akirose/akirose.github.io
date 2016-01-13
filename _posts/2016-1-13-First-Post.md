@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 첫 포스팅 시도...
-tag:
-  -- post
+tag: 
+  post
 ---
 Git에 문외한 이라 공부가 많이 필요할 듯...-_-;
 
