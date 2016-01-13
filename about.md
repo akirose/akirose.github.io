@@ -6,6 +6,10 @@ permalink: /about/
 
 Some information about you!
 
+# Header 1 #
+## Header 2 ##
+### Header 3 ###
+
 ### More Information
 
 A place to include any other types of information that you'd like to include about yourself.
