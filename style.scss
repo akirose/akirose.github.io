@@ -51,7 +51,7 @@ hr { position: absolute; display: none; }
 #header .globalMenu:after { display: block; clear: both; content: ""; }
 #header .globalMenu { position: relative; list-style-type: none; list-style-image: none; width: 678px; bottom:-3px; height: 37px; left: 192px; }
 #header .globalMenu LI { text-align: center; font: 11px Arial, Helvetica, sans-serif; float: left; }
-#header .globalMenu LI A { padding: 12px 30px 0px 30px; display: inline-block; height: 25px; text-decoration: none; color: #999999; }
+#header .globalMenu LI A { padding: 12px 30px 0px 30px; display: inline-block; height: 37px; text-decoration: none; color: #999999; }
 #header .globalMenu LI A:hover { padding: 12px 29px 0px 29px; border-left: #cdcdcd 1px solid; border-right: #cdcdcd 1px solid; text-decoration: none; background: url("images/extra_menu_on.gif");  color: #666666;}
 
 #body { position: static; *zoom:1; padding-bottom: 50px; padding-left: 30px; padding-right: 30px; padding-top: 0px; background: url("images/layout_contents.png") repeat-y; }
