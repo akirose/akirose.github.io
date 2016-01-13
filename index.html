@@ -1,10 +1,9 @@
 ---
 layout: default
 ---
-<div id="contents">
+
 {% for post in site.posts %}
 <h2 class="postTitle"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
-<span class="commentsShout">10</span>
 <div class="bx_meta">
   <p class="postMeta">October 16 in category <strong>Tip</strong> by Aki_Rose</p>
 </div>
@@ -14,4 +13,3 @@ layout: default
 <a href="{{ site.baseurl }}{{ post.url }}" class="summaryMore"></a>
 <span class="lineBreaker"><img src="img/blank.gif" alt="" width="10" height="1" /></span>
 {% endfor %}
-</div>
