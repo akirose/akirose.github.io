@@ -3,12 +3,12 @@ layout: default
 ---
 
 <article class="post">
-	<h2 class="postTitle">{{ page.title }}</h2>
-	<div class="bx_meta">
-	  <p class="postMeta">Written on {{ page.date | date: "%B %e, %Y" }}</p>
-	</div>
-	<div class="se_contents">
-	   {{ post.excerpt }}
-	</div>
+  <h2 class="postTitle">{{ page.title }}</h2>
+  <div class="bx_meta">
+    <p class="postMeta">Written on {{ page.date | date: "%B %e, %Y" }}</p>
+  </div>
+  <div class="se_contents">
+  {{ content }}
+  </div>
   {% include disqus.html %}
 </article>
