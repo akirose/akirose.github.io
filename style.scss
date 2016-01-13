@@ -9,7 +9,7 @@
 @import "variables";
 // Syntax highlighting @import is at the bottom of this file
 
-body { padding: 0px; margin: 0px; font-size: 0.75em; font-family: AppleGothic, Tahoma; background: url("../images/bg01.gif"); }
+body { padding: 0px; margin: 0px; font-size: 0.75em; font-family: AppleGothic, Tahoma; background: url("images/bg01.gif"); }
 img { border-top: medium none; border-bottom: medium none; border-left: medium none; border-right: medium none; }
 label { cursor: pointer; }
 form { padding: 0px; margin: 0px; }
@@ -17,10 +17,10 @@ hr { position: absolute; display: none; }
 
 #overlay { position: absolute; top: 50%; left: 0px; margin: -9px 0px 0px 0px; text-align: center; width: 100%; z-index: 9999; }
 
-#se { position: relative; _width: 100%; background: url("../images/bg02.gif") repeat-x; }
+#se { position: relative; _width: 100%; background: url("images/bg02.gif") repeat-x; }
 
-#bgGlow { position: static; padding: 0px; margin: 0px auto; width: 960px; height: 316px; background: url("../images/header.png") no-repeat center top; }
-#bgGlow { _background: none; _filter: expression("progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/header.png', sizingMethod='crop')"); }
+#bgGlow { position: static; padding: 0px; margin: 0px auto; width: 960px; height: 316px; background: url("images/header.png") no-repeat center top; }
+#bgGlow { _background: none; _filter: expression("progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/header.png', sizingMethod='crop')"); }
 #bgGlow div.logo { position: relative; top: 34px; left: 22px; float: left; }
 #bgGlow A.logo {  cursor: pointer; display: block; color: #EEEEEE; font-family: tahoma; font-size: 2em; font-weight: bold; text-decoration: none; }
 #bgGlow A.logo { _background: none; }
@@ -30,8 +30,8 @@ hr { position: absolute; display: none; }
 .fixed #container { width: 960px; margin-left: auto; margin-right: auto; }
 #container { top: -129px; }
 
-#header { position: static; padding: 0px; height: 153px; *zoom: 1; background: url("../images/layout_top.png") no-repeat center top; }
-#header { _background: none; _filter: expression("progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/layout_top.png', sizingMethod='crop')"); }
+#header { position: static; padding: 0px; height: 153px; *zoom: 1; background: url("images/layout_top.png") no-repeat center top; }
+#header { _background: none; _filter: expression("progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/layout_top.png', sizingMethod='crop')"); }
 #header:after { display: block; clear: both; content: ""; }
 #header .second_logo { position: absolute; display: block; width: 164px; height:183px; top: -25px; left:10px; }
 #header .extension * { padding: 0px; margin: 0px; }
@@ -40,11 +40,11 @@ hr { position: absolute; display: none; }
 #header .extension UL { position: relative; float: right; overflow: hidden; top: 1px; right: 8px; }
 #header .extension LI { position: relative; list-style-type: none; display: inline; list-style-image: none; }
 #header .extension LI A span { display: block; cursor: pointer; padding-left: 125px; }
-#header .extension LI A.guestbook { width: 125px; display: block; background: url("../images/btn_guestbook.gif") no-repeat 0px 0px; height: 39px; overflow: hidden; width: 125px; }
+#header .extension LI A.guestbook { width: 125px; display: block; background: url("images/btn_guestbook.gif") no-repeat 0px 0px; height: 39px; overflow: hidden; width: 125px; }
 #header .extension LI A.guestbook:hover { background-position: 0px -39px; }
-#header .extension LI A.tags { width: 125px; display: block; background: url("../images/btn_tags.gif") no-repeat 0px 0px; height: 37px; overflow: hidden; width: 125px; }
+#header .extension LI A.tags { width: 125px; display: block; background: url("images/btn_tags.gif") no-repeat 0px 0px; height: 37px; overflow: hidden; width: 125px; }
 #header .extension LI A.tags:hover { background-position: 0px -37px; }
-#header .extension LI A.profile { width: 125px; display: block; background: url("../images/btn_profile.gif") no-repeat 0px 0px; height: 37px; overflow: hidden; width: 125px; }
+#header .extension LI A.profile { width: 125px; display: block; background: url("images/btn_profile.gif") no-repeat 0px 0px; height: 37px; overflow: hidden; width: 125px; }
 #header .extension LI A.profile:hover { background-position: 0px -37px; }
 
 #header .globalMenu { padding: 0px; margin: 0px; float: none; clear:both; }
@@ -52,10 +52,10 @@ hr { position: absolute; display: none; }
 #header .globalMenu { position: relative; list-style-type: none; list-style-image: none; width: 678px; bottom:-3px; height: 37px; left: 192px; }
 #header .globalMenu LI { text-align: center; font: 11px Arial, Helvetica, sans-serif; float: left; }
 #header .globalMenu LI A { padding: 12px 30px 0px 30px; display: inline-block; height: 25px; text-decoration: none; color: #999999; }
-#header .globalMenu LI A:hover { padding: 12px 29px 0px 29px; border-left: #cdcdcd 1px solid; border-right: #cdcdcd 1px solid; text-decoration: none; background: url("../images/extra_menu_on.gif");  color: #666666;}
+#header .globalMenu LI A:hover { padding: 12px 29px 0px 29px; border-left: #cdcdcd 1px solid; border-right: #cdcdcd 1px solid; text-decoration: none; background: url("images/extra_menu_on.gif");  color: #666666;}
 
-#body { position: static; *zoom:1; padding-bottom: 50px; padding-left: 30px; padding-right: 30px; padding-top: 0px; background: url("../images/layout_contents.png") repeat-y; }
-#body { _background: none; _filter: expression("progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/layout_contents.png', sizingMethod='scale')"); }
+#body { position: static; *zoom:1; padding-bottom: 50px; padding-left: 30px; padding-right: 30px; padding-top: 0px; background: url("images/layout_contents.png") repeat-y; }
+#body { _background: none; _filter: expression("progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/layout_contents.png', sizingMethod='scale')"); }
 #body:after { display: block; clear: both; content: ""; }
 
 #body .extension { position: relative; }
@@ -70,16 +70,16 @@ hr { position: absolute; display: none; }
 #contents .postTitle A { color: #3c3c3c; text-decoration: none; }
 #contents .bx_meta { padding: 0px; margin: 0px 0px 25px; }
 #contents .postMeta { padding: 6px 9px 4px 9px; display: inline; background: #929ea4; color: #ffffff; font-size: 11px; }
-#contents .commentsShout { position: absolute; right: -50px; font-size: 18px; font-family: Arial, Helvetica, Sans-serif; font-weight: bold; height: 46px; width: 44px; background: url('../images/comments.gif') no-repeat; line-height: 36px; text-align: center; color: #3a2f27; display: block; }
-#contents a.summaryMore{ position:relative; float:right; clear:both; display:block; width:104px; height:30px; background:url('../images/btn_continue.gif') no-repeat; cursor:pointer; }
+#contents .commentsShout { position: absolute; right: -50px; font-size: 18px; font-family: Arial, Helvetica, Sans-serif; font-weight: bold; height: 46px; width: 44px; background: url('images/comments.gif') no-repeat; line-height: 36px; text-align: center; color: #3a2f27; display: block; }
+#contents a.summaryMore{ position:relative; float:right; clear:both; display:block; width:104px; height:30px; background:url('images/btn_continue.gif') no-repeat; cursor:pointer; }
 
 .se_contents { color: #000; font-size: 12px; overflow: hidden; line-height: 1.6; font-family: NanumMyeongjo, AppleGothic, Malgun Gothic, Dotum; clear: both; }
 
 .fixed .ec #body .e1 { display: block; float: left; clear: left; margin-top: 40px; width: 215px; }
 .fixed .ec #body #contents { float: right; width: 650px; margin-top: 40px; }
 
-#footer { padding: 0px; width: 960px; height: 34px; background: url("../images/layout_bottom.png") no-repeat; }
-#footer { _background: none; _filter: expression("progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/layout_bottom.png', sizingMethod='crop')"); }
+#footer { padding: 0px; width: 960px; height: 34px; background: url("images/layout_bottom.png") no-repeat; }
+#footer { _background: none; _filter: expression("progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/layout_bottom.png', sizingMethod='crop')"); }
 #footer:after { position: relative; display: block; clear: both; content: ""; }
 
 #bottomMenu { position: relative; padding: 0px; margin: 25px 0px 0px 4px; color: #3c3c3c; clear: both; }

@@ -27,7 +27,46 @@
   <img src="{{ site.avatar }}" alt="Now is loading..." />
 </div>
 <div class="fixed" id="se">
-{{ content }}
+  <div id="bgGlow">
+    <div class="logo">
+      <a href="" class="logo">Simplicity</a><br />
+      <span class="home_url"><a href="">http://akirose.nweaver.com</a></span>
+    </div>
+  </div>
+  <div class="ec" id="container">
+    <div id="header">
+      <span class="second_logo"></span>
+      <div class="extension">
+        <ul>
+          <li><a title="방명록" class="guestbook" href=""><span>방명록</span></a></li>
+          <li class="tags"><a title="태그" class="tags" href=""><span>태그</span></a></li>
+          <li class="profile"><a title="프로필" class="profile" href=""><span>프로필</span></a></li>
+        </ul>
+      </div>
+      <hr />
+      <ul class="globalMenu">
+        <li><a title="프로필" href="">Profile</a></li>
+        <li><a title="블로그" href="">Blog</a></li>
+        <li><a title="사진" href="">Photo</a></li>
+      </ul>
+    </div>
+    <hr />
+    <div id="body">
+      {{ content }}
+      <hr />
+      <div class="extension e1">
+        <div class="section">
+          <h2>Category</h2>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div id="footer">
+    </div>
+    <div id="bottomMenu">
+      <p class="copyright">Copyright 2009-$!{date.getYear()} Simplicity. All right reserved. All logos used on this page are the property of their respective trademark owners.</p>
+    </div>
+  </div>
 </div>
 </body>
 
