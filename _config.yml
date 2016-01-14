@@ -14,8 +14,7 @@ avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/je
 #
 # Flags below are optional
 #
-redcarpet:
-  hard_wrap: true
+
 
 # Includes an icon in the footer for each username you enter
 footer-links:
@@ -56,6 +55,9 @@ baseurl: ""
 #
 
 markdown: redcarpet
+redcloth:
+  hard_breaks: true
+
 highlighter: pygments
 permalink: /:title/
 
