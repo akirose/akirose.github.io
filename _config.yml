@@ -14,6 +14,8 @@ avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/je
 #
 # Flags below are optional
 #
+redcarpet:
+  hard_wrap: true
 
 # Includes an icon in the footer for each username you enter
 footer-links:
@@ -56,7 +58,6 @@ baseurl: ""
 markdown: redcarpet
 highlighter: pygments
 permalink: /:title/
-hard_wrap: true
 
 # The release of Jekyll Now that you're using
 version: v1.1.0
