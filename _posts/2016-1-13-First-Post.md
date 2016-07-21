@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 첫 포스팅 시도...
+title: 첫 포스팅
 category: Story
-tags: git
+tags: jekyll github.io blog
 ---
 Github Pages (Jykell)을 이용해서 간단하게 블로그를 만들어보려고 시도 끝에 성공함!
 주로 사용하는 형상관리가 SVN이다보니 git이랑은 미묘하게 달라서 적응에 시간이 조금 필요할 것 같은데 써보니 git이 훨씬 편리하기도 하고 유리하다.

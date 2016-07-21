@@ -1,15 +1,41 @@
 ---
 layout: default
 ---
-
-{% for post in site.posts %}
-<h2 class="postTitle"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
-<div class="bx_meta">
-  <p class="postMeta">Written on {{ post.date | date: "%B %e, %Y" }}</p>
+{% if paginator.posts %}
+	{% for post in site.posts %}
+	<h2 class="postTitle"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+	<div class="bx_meta">
+	  <p class="postMeta">Written on {{ post.date | date: "%B %e, %Y" }}</p>
+	</div>
+	<div class="se_contents">
+	   {{ post.excerpt }}
+	</div>
+	<a href="{{ site.baseurl }}{{ post.url }}" class="summaryMore"></a>
+	<span class="lineBreaker"><img src="images/blank.gif" alt="" width="10" height="1" /></span>
+	{% endfor %}
+{% endif %}
+<div class="text-xs-center">
+<ul class="pagination pagination-sm">
+  <li class="page-item{% unless paginator.previous_page %} disabled{% endunless %}">
+    <a class="page-link" href="{% if paginator.previous_page == 1 %}/blog/{% else %}{{ paginator.previous_page_path }}{% endif %}" aria-label="Previous">
+      <span aria-hidden="true">&laquo;</span>
+      <span class="sr-only">Previous</span>
+    </a>
+  </li>
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <li class="page-item active"><a class="page-link" href="#">{{ page }} <span class="sr-only">(current)</span></a></li>
+    {% elsif page == 1 %}
+      <li class="page-item"><a class="page-link" href="/blog/">1</a></li>
+    {% else %}
+      <li class="page-item"><a class="page-link" href="{{ site.paginate_path | replace: ':num', page }}">{{ page }}</a></li>
+    {% endif %}
+  {% endfor %}
+  <li class="page-item{% unless paginator.next_page %} disabled{% endunless %}">
+    <a class="page-link" href="{% if paginator.next_page %}{{ paginator.next_page_path }}{% else %}#{% endif %}" aria-label="Next">
+      <span aria-hidden="true">&raquo;</span>
+      <span class="sr-only">Next</span>
+    </a>
+  </li>
+</ul>
 </div>
-<div class="se_contents">
-   {{ post.excerpt }}
-</div>
-<a href="{{ site.baseurl }}{{ post.url }}" class="summaryMore"></a>
-<span class="lineBreaker"><img src="images/blank.gif" alt="" width="10" height="1" /></span>
-{% endfor %}

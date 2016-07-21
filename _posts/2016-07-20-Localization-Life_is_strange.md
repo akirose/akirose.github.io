@@ -2,7 +2,7 @@
 layout: post
 title: Square Enix - Life is strange
 category: Localization
-tags: localization, korean
+tags: localization korean
 ---
 ### Screenshot
 ![Life is strange](https://cloud.githubusercontent.com/assets/6344563/17007982/0d78607e-4f28-11e6-9240-3bc9d91c83dc.jpg)
