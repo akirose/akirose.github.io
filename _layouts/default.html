@@ -5,7 +5,6 @@
   {% include meta.html %}
   <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
   <link rel="stylesheet" media="screen" type="text/css" href="{{ site.baseurl }}/style.css" />
-  <link rel="stylesheet" media="print" type="text/css" href="{{ site.baseurl }}/print.css" />
   <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
 
   <style type="text/css">
@@ -58,6 +57,9 @@
       <div class="extension e1">
         <div class="section">
           <h2>Category</h2>
+            {% for category in site.categories %}
+                <h5>{{ category | first }}</h5>
+            {% endfor %}
         </div>
       </div>
     </div>

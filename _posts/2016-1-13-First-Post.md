@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 첫 포스팅 시도...
-category: story
+category: Story
 tags: git
 ---
 Github Pages (Jykell)을 이용해서 간단하게 블로그를 만들어보려고 시도 끝에 성공함!

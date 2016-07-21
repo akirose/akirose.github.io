@@ -20,9 +20,9 @@ avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/je
 footer-links:
   dribbble:
   email:
+  github: akirose
   facebook: akirose1024
   flickr:
-  github: akirose
   instagram:
   linkedin:
   pinterest:
@@ -57,7 +57,6 @@ baseurl: ""
 markdown: kramdown
 kramdown:
   input: GFM
-
 highlighter: pygments
 permalink: /:title/
 
@@ -81,4 +80,4 @@ exclude:
     - README.md
     - CNAME
 
-excerpt_separator: "\n\n"
+excerpt_separator: "<!--more-->"

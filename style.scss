@@ -53,10 +53,16 @@ h2 {
 
 h3 {
   font-size: 20px;
+  border-bottom: 1px dashed $lighterGray;
 }
 
 h4 {
   font-size: 18px;
+  color: $gray;
+}
+
+h5 {
+  font-size: 16px;
   color: $gray;
 }
 
