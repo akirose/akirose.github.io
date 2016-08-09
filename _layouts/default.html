@@ -11,7 +11,7 @@
   <style type="text/css">
     #se { display: none; }
   </style>
-
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
   <script type="text/javascript" src="{{ site.baseurl }}/jquery-simplicity.js"></script>
@@ -20,6 +20,16 @@
         $(window).load(function() {
           $("div#overlay").fadeOut(300);
           $("#se").fadeIn(600);
+
+          var OneSignal = OneSignal || [];
+          OneSignal.push(["init", {
+            appId: "ce678d29-3ca2-4938-ba19-14bf4dd2fa08",
+            autoRegister: false, /* Set to true to automatically prompt visitors */
+            subdomainName: 'akirose.github.io',   
+            notifyButton: {
+                enable: true /* Set to false to hide */
+            }
+          }]);
         });
     </script>
 </head>
