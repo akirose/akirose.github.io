@@ -67,11 +67,9 @@
       {{ content }}
 
     <a href="#" id="subscribe-link" style="display: none;">Subscribe to Notifications</a>
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async="async"></script>
     <script>
         function subscribe() {
             OneSignal.push(["registerForPushNotifications"]);
-            event.preventDefault();
         }
 
         var OneSignal = OneSignal || [];
