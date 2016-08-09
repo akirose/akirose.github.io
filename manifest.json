@@ -1,0 +1,7 @@
+{
+  "name": "TestSignal",
+  "short_name": "TestSignal",
+  "start_url": "/",
+  "display": "standalone",
+  "gcm_sender_id": "1470730163191"
+}
