@@ -1,6 +1,6 @@
 {
-  "name": "TestSignal",
-  "short_name": "TestSignal",
+  "name": "akirose.github.io",
+  "short_name": "akirose.github.io",
   "start_url": "/",
   "display": "standalone",
   "gcm_sender_id": "1470730163191"
