@@ -56,19 +56,17 @@
     <div id="body">
       <div id="contents">
       {{ content }}
-
-    <a href="#" id="subscribe-link" style="display: none;">Subscribe to Notifications</a>
-    <script>
-        var OneSignal = OneSignal || [];
-        OneSignal.push(["init", {
-          appId: "b2c2f6ab-1b0b-4119-a23f-67f2cc67a905",
-          subdomainName: 'akirose',
-          autoRegister: true, /* Set to true to automatically prompt visitors */
-          notifyButton: {
-              enable: true /* Set to false to hide */
-          }
-        }]);
-    </script>    
+        <!-- One signal GCM Push -->
+        <script>
+            var OneSignal = OneSignal || [];
+            OneSignal.push(["init", {
+              appId: "b2c2f6ab-1b0b-4119-a23f-67f2cc67a905",
+              autoRegister: true, /* Set to true to automatically prompt visitors */
+              notifyButton: {
+                  enable: true /* Set to false to hide */
+              }
+            }]);
+        </script>    
       </div>
       <hr />
       <div class="extension e1">
