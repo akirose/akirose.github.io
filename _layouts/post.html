@@ -1,13 +1,25 @@
 ---
 layout: default
 ---
-<article class="post">
-  <h2 class="postTitle">{{ page.title }}</h2>
-  <div class="bx_meta">
-    <p class="postMeta">Written on {{ page.date | date: "%B %e, %Y" }}</p>
-  </div>
-  <div class="se_contents">
+
+<div class="post">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <span class="post-date">Written on {{ page.date | date: "%B %e, %Y" }}</span>
   {{ content }}
-  </div>
-  {% include disqus.html %}
-</article>
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    {% for post in site.related_posts limit:3 %}
+      <li>
+        <h3>
+          <a href="{{ site.baseurl }}{{ post.url }}">
+            {{ post.title }}
+            <small>{{ post.date | date_to_string }}</small>
+          </a>
+        </h3>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

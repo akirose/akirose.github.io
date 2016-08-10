@@ -1,96 +1,58 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="ko">
 
-<head>
-  {% include meta.html %}
-  <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
-  <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+  {% include head.html %}
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-  <link rel="stylesheet" media="screen" type="text/css" href="{{ site.baseurl }}/style.css" />
-  <style type="text/css">
-    #se { display: none; }
-  </style>
-  <link rel="manifest" href="/manifest.json">
-  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="{{ site.baseurl }}/jquery-simplicity.js"></script>
-  <script type="text/javascript">
-    /* loading screen */
-      $(window).load(function() {
-        $("div#overlay").fadeOut(300);
-        $("#se").fadeIn(600);
-      });
-  </script>
-</head>
+  <body class="layout-reverse sidebar-overlay theme-base-0d">
 
-<body>
-<div class="overlay" id="overlay">
-  <img src="{{ site.avatar }}" alt="Now is loading..." />
-</div>
-<div class="fixed" id="se">
-  <div id="bgGlow">
-    <div class="logo">
-      <a href="{{ site.baseurl }}/" class="logo">{{ site.name }}</a><br />
-      <span class="home_url"><a href="">http://akirose.github.io</a></span>
-    </div>
-  </div>
-  <div class="ec" id="container">
-    <div id="header">
-      <span class="second_logo"></span>
-      <div class="extension">
-        <ul>
-          <li><a title="방명록" class="guestbook" href="#"><span>방명록</span></a></li>
-          <li class="tags"><a title="태그" class="tags" href="{{ site.baseurl }}/tags"><span>태그</span></a></li>
-          <li class="profile"><a title="프로필" class="profile" href="{{ site.baseurl }}/about"><span>프로필</span></a></li>
-        </ul>
-      </div>
-      <hr />
-      <ul class="globalMenu">
-        <li><a title="프로필" href="{{ site.baseurl }}/about">Profile</a></li>
-        <li><a title="블로그" href="{{ site.baseurl }}/">Blog</a></li>
-      </ul>
-    </div>
-    <hr />
-    <div id="body">
-      <div id="contents">
-      {{ content }}
-        <!-- One signal GCM Push -->
-        <script>
-            var OneSignal = OneSignal || [];
-            OneSignal.push(["init", {
-              appId: "b2c2f6ab-1b0b-4119-a23f-67f2cc67a905",
-              autoRegister: true, /* Set to true to automatically prompt visitors */
-              notifyButton: {
-                  enable: true /* Set to false to hide */
-              }
-            }]);
-            OneSignal.push(["sendTag", "from", "blog"]);
-        </script>    
-      </div>
-      <hr />
-      <div class="extension e1">
-        <div class="section">
-          <h2>Category</h2>
-            {% for category in site.categories %}
-                <h5>{{ category | first }}</h5>
-            {% endfor %}
+    {% include sidebar.html %}
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="{{ site.baseurl }}/" title="Home">{{ site.name }}</a>
+            <small>{{ site.description }}</small>
+          </h3>
         </div>
       </div>
-    </div>
-    <hr />
-    <div id="footer">
-    </div>
-    <div id="bottomMenu">
-      <p class="copyright">Copyright 2009-2016 Simplicity. All right reserved. All logos used on this page are the property of their respective trademark owners.</p>
+
+      <div class="container content">
+        {{ content }}
+      </div>
       <p style="text-align: right;">{% include svg-icons.html %}</p>
     </div>
-  </div>
-</div>
-{% include analytics.html %}
-</body>
 
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+
+      var OneSignal = OneSignal || [];
+      OneSignal.push(["init", {
+        appId: "b2c2f6ab-1b0b-4119-a23f-67f2cc67a905",
+        autoRegister: true, /* Set to true to automatically prompt visitors */
+        notifyButton: {
+            enable: true /* Set to false to hide */
+        }
+      }]);
+      OneSignal.push(["sendTag", "from", "blog"]);
+    </script>
+  </body>
 </html>
-
-
