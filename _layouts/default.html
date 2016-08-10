@@ -21,15 +21,6 @@
       $(window).load(function() {
         $("div#overlay").fadeOut(300);
         $("#se").fadeIn(600);
-
-        var OneSignal = OneSignal || [];
-        OneSignal.push(["init", {
-          appId: "b2c2f6ab-1b0b-4119-a23f-67f2cc67a905",
-          autoRegister: true, /* Set to true to automatically prompt visitors */
-          notifyButton: {
-              enable: true /* Set to false to hide */
-          }
-        }]);
       });
   </script>
 </head>
@@ -68,27 +59,14 @@
 
     <a href="#" id="subscribe-link" style="display: none;">Subscribe to Notifications</a>
     <script>
-        function subscribe() {
-            OneSignal.push(["registerForPushNotifications"]);
-        }
-
         var OneSignal = OneSignal || [];
-        /* This example assumes you've already initialized OneSignal */
-        OneSignal.push(function() {
-            // If we're on an unsupported browser, do nothing
-            if (!OneSignal.isPushNotificationsSupported()) {
-                return;
-            }
-            OneSignal.isPushNotificationsEnabled(function(isEnabled) {
-                if (isEnabled) {
-                    // The user is subscribed to notifications
-                    // Don't show anything
-                } else {
-                    document.getElementById("subscribe-link").addEventListener('click', subscribe);
-                    document.getElementById("subscribe-link").style.display = '';
-                }
-            });
-        });
+        OneSignal.push(["init", {
+          appId: "b2c2f6ab-1b0b-4119-a23f-67f2cc67a905",
+          autoRegister: true, /* Set to true to automatically prompt visitors */
+          notifyButton: {
+              enable: true /* Set to false to hide */
+          }
+        }]);
     </script>    
       </div>
       <hr />
