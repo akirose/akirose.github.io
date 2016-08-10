@@ -18,20 +18,20 @@
   <script type="text/javascript" src="{{ site.baseurl }}/jquery-simplicity.js"></script>
   <script type="text/javascript">
     /* loading screen */
-        $(document).ready(function() {
-          $("div#overlay").fadeOut(300);
-          $("#se").fadeIn(600);
+      $(window).ready(function() {
+        $("div#overlay").fadeOut(300);
+        $("#se").fadeIn(600);
 
-          var OneSignal = OneSignal || [];
-          OneSignal.push(["init", {
-            appId: "b2c2f6ab-1b0b-4119-a23f-67f2cc67a905",
-            autoRegister: true, /* Set to true to automatically prompt visitors */
-            notifyButton: {
-                enable: true /* Set to false to hide */
-            }
-          }]);
-        });
-    </script>
+        var OneSignal = OneSignal || [];
+        OneSignal.push(["init", {
+          appId: "b2c2f6ab-1b0b-4119-a23f-67f2cc67a905",
+          autoRegister: true, /* Set to true to automatically prompt visitors */
+          notifyButton: {
+              enable: true /* Set to false to hide */
+          }
+        }]);
+      });
+  </script>
 </head>
 
 <body>
