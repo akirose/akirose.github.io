@@ -4,8 +4,6 @@ title: Projects
 permalink: /projects/
 ---
 
-# Projects
-
 ## Assetto Corsa Server UDP Plug-in
 * github url : http://github.com/akirose/ACS_Plugin
 * requirement : Node.js >= 6.2.0
