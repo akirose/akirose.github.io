@@ -2,6 +2,7 @@
 layout: post
 title: PS4 HDD Bay Cover 구입
 category: Game
+comments: true
 tags: ["PS4 HDD bay cover", "PS4 accessories"]
 ---
 
