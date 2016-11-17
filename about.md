@@ -4,6 +4,6 @@ title: About
 permalink: /about/
 ---
 
-{{ site.name }}
+{{ site.author }}
 
 {{ site.description }}
