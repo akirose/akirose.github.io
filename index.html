@@ -12,7 +12,7 @@ title: Home
       </a>
     </h1>
 
-    <span class="post-date">Written on {{ post.date | date: "%B %e, %Y" }}</span>
+    <span class="post-date">Written on {{ post.date | date: "%B %e, %Y" }}</span> / <a href="{{ post.url }}#disqus_thread"></a>
 
     {{ post.excerpt }}
   </div>
@@ -36,3 +36,4 @@ title: Home
   {% endif %}
 </div>
 
+<script id="dsq-count-scr" src="//akirose.disqus.com/count.js" async></script>
