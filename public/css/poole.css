@@ -220,6 +220,10 @@ blockquote {
 blockquote p:last-child {
   margin-bottom: 0;
 }
+blockquote.info {
+  border-left: .25rem solid #dc0;
+  background-color: #ffa;
+}
 @media (min-width: 30em) {
   blockquote {
     padding-right: 5rem;
