@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title></title>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2017-03-07T01:24:41+00:00</updated>
+ <id>http://localhost:4000</id>
+ <author>
+   <name></name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title>요즘 나의 취미 드론 비행...</title>
+   <link href="http://localhost:4000/drone/drone/"/>
+   <updated>2017-03-07T00:00:00+00:00</updated>
+   <id>http://localhost:4000/drone/drone</id>
+   <content type="html">&lt;p&gt;드론을 시작한 지는 이제 3개월 쯤 흘럿는데 막상 블로그에 글을 잘 안쓰게 되네…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/6344563/23637477/4cb95454-031f-11e7-83a4-828efad62de8.jpg&quot; alt=&quot;Hubsan H501S X4 FPV Advanced&quot; /&gt;
+현재 내가 주력으로 사용하는 Hubsan H501S X4 FPV Advanced 되시겠다.
+흔히 사람들에게는 오공이라고 불리는 모델로 GPS를 갖추고 있는 센서형 드론 중에서는 가성비 모델로 꼽힌다.
+&lt;!--more--&gt;
+GPS를 갖추고 있는 센서 드론으로 Fail-safe, Return to home, Follow me 등의 기능을 갖추고 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/6344563/23637489/562ff466-031f-11e7-8649-8a483c4f9e8f.jpg&quot; alt=&quot;하늘에서 바라본 부곡 화물터미널&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;아래는 짤막하게 편집해본 의왕 부곡근린공원 앞 공사장 부근 비행영상…&lt;/p&gt;
+
+&lt;style&gt;.bt-video-container iframe,.bt-video-container object,.bt-video-container embed{position:absolute;top:0;left:0;width:100%;height:100%;margin-top:0}&lt;/style&gt;
+
+&lt;div class=&quot;bt-video-container&quot; style=&quot;position:relative;padding-bottom:56.25%;height:auto;max-width:100%overflow:hidden&quot;&gt;&lt;iframe width=&quot;640&quot; height=&quot;480&quot; src=&quot;http://www.youtube.com/embed/c5nGKm3e7PY?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Adrenaline released</title>
+   <link href="http://localhost:4000/game/adrenaline/"/>
+   <updated>2016-11-18T00:00:00+00:00</updated>
+   <id>http://localhost:4000/game/adrenaline</id>
+   <content type="html">&lt;p&gt;몇달 전에 Henkaku의 등장과 함께 원래 쓰던 비타 외에 3.60 펌웨어로 사용할 비타를 한대 더 구입했다.&lt;/p&gt;
+
+&lt;p&gt;VITA 게임 중에도 한글로 하고 싶었던 게임이 몇몇 있었던지라 고민없이 1세대 한대를 추가로 영입해둿는데…&lt;/p&gt;
+
+&lt;p&gt;오늘 보니까 PSP 게임을 구동할 수 있는 플러그인인 Adrenaline이 릴리즈 되었다.
+&lt;!--more--&gt;
+뭐 어차피 PSP Go를 하나 가지고 있어서 크게 의미는 없지만 그냥 뭔가 하나 더 할 수 있는 느낌?;&lt;/p&gt;
+
+&lt;p&gt;특별한건 없고 지원 되는건 아래 목록의 내용과 같고…&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;What does Adrenaline currently support?&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;XMB&lt;/li&gt;
+    &lt;li&gt;ISO/CSO&lt;/li&gt;
+    &lt;li&gt;Homebrews&lt;/li&gt;
+    &lt;li&gt;Plugins&lt;/li&gt;
+    &lt;li&gt;VshMenu, Recovery menu&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;얼마전에 64MB RAM도 사용하는데 성공했다고 하는데 이번 릴리즈에는 포함이 안되었나보다.&lt;/p&gt;
+
+&lt;p&gt;그 외에 PS1 게임을 기대했는데 아직 안되고있군… (사실 있어도 안할거면서…)&lt;/p&gt;
+
+&lt;p&gt;나머지는 뭐 별로 신경 안쓰이는…ㄱ-;;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;These features are not included yet:&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;64MB RAM&lt;/li&gt;
+    &lt;li&gt;PS1 games support&lt;/li&gt;
+    &lt;li&gt;Ability to use ur0 as Memory Stick File System&lt;/li&gt;
+    &lt;li&gt;Savestates&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;설치는 구글신께 문의 하면 쉽게…찾아짐;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>장염인가?...</title>
+   <link href="http://localhost:4000/story/food-poisoning/"/>
+   <updated>2016-11-17T00:00:00+00:00</updated>
+   <id>http://localhost:4000/story/food-poisoning</id>
+   <content type="html">&lt;p&gt;아… 뭔가 처음 겪는 고통이다…-_-;&lt;/p&gt;
+
+&lt;p&gt;요즘 여러모로 휴식도 좀 부족하고 스트레스도 받고 컨디션이 떨어져 있어서 그런지 몸이 반응을 한다…ㅠㅠ&lt;/p&gt;
+
+&lt;p&gt;어제 아침에 김밥 먹고 약간 이상하다 싶었는데 점심 먹고 나서부터 어딘가 불편하기 시작하더니…
+&lt;!--more--&gt;
+하루 지나고 나니 배를 쥐어 짜는 것 같네;;&lt;/p&gt;
+
+&lt;p&gt;에휴…OTL 설사, 복통, 약간의 미열? 등 증상으로 보아선 장염인가?…-.-;;&lt;/p&gt;
+
+&lt;p&gt;병원이나 가봐야 할 듯…;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>PS4 HDD Bay Cover 구입</title>
+   <link href="http://localhost:4000/game/PS4-HDD-Cover/"/>
+   <updated>2016-11-16T00:00:00+00:00</updated>
+   <id>http://localhost:4000/game/PS4-HDD-Cover</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/6344563/20339073/c337cf74-ac1d-11e6-824d-2b667fa25cee.jpg&quot; alt=&quot;PS4 HDD Bay Cover Gold&quot; /&gt;
+&lt;!--more--&gt;
+&lt;img src=&quot;https://cloud.githubusercontent.com/assets/6344563/20339072/c32e15ce-ac1d-11e6-9aba-5487dab021df.jpg&quot; alt=&quot;PS4 HDD Bay Cover Gold&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이제 구형이 되어버린 Playstation 4 (CUH-1105A)&lt;/p&gt;
+
+&lt;p&gt;Slim과 Pro의 출시로 기존 PS4용 악세서리들이 덤핑되고 있어서 기분전환 겸 하나 구입해본건데 생각보다 나쁘지 않은 것 같다.&lt;/p&gt;
+
+&lt;p&gt;이 참에 수직 받침대도 하나 살까?&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Square Enix - Life is strange</title>
+   <link href="http://localhost:4000/localization/Life_is_strange/"/>
+   <updated>2016-07-20T00:00:00+00:00</updated>
+   <id>http://localhost:4000/localization/Life_is_strange</id>
+   <content type="html">&lt;h3 id=&quot;screenshot&quot;&gt;Screenshot&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/6344563/17007982/0d78607e-4f28-11e6-9240-3bc9d91c83dc.jpg&quot; alt=&quot;Life is strange&quot; /&gt;
+&lt;!--more--&gt;
+&lt;img src=&quot;https://cloud.githubusercontent.com/assets/6344563/17007981/0d771156-4f28-11e6-8f68-144495d329c9.jpg&quot; alt=&quot;Life is strange&quot; /&gt;
+&lt;img src=&quot;https://cloud.githubusercontent.com/assets/6344563/17007983/0d795a06-4f28-11e6-9345-5956238ef890.jpg&quot; alt=&quot;Life is strange&quot; /&gt;
+&lt;img src=&quot;https://cloud.githubusercontent.com/assets/6344563/17007985/0d853038-4f28-11e6-9a42-c8c06973932e.jpg&quot; alt=&quot;Life is strange&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Platform : Xbox360
+Engine : Unreal Engine 3&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>첫 포스팅</title>
+   <link href="http://localhost:4000/story/First-Post/"/>
+   <updated>2016-01-13T00:00:00+00:00</updated>
+   <id>http://localhost:4000/story/First-Post</id>
+   <content type="html">&lt;p&gt;Github Pages (Jykell)을 이용해서 간단하게 블로그를 만들어보려고 시도 끝에 성공함!
+주로 사용하는 형상관리가 SVN이다보니 git이랑은 미묘하게 달라서 적응에 시간이 조금 필요할 것 같은데 써보니 git이 훨씬 편리하기도 하고 유리하다.
+오프라인 환경에서 commit이 가능한 것은 매우 유용!&lt;/p&gt;
+
+&lt;p&gt;다만 Jykell을 로컬에 구성하지 않으면 매번 commit 후 push를 하고 확인하고 해야하니 다소 번거롭고 귀찮기도 하다.
+익숙하지 않은 Markdown 문법도 어색하기도 하고…;&lt;/p&gt;
+
+&lt;p&gt;조금 편하게 사용할 수 있는 방법을 고민해봐야 할 것 같다…&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>

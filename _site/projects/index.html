@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Projects &middot; Simplicity
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="manifest" href="/manifest.json">
+
+  <link rel="stylesheet" media="screen" type="text/css" href="/style.css" />
+
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="layout-reverse sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>somewhere only we know</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/localization/">Localization</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/projects/">Projects</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/tags/">Tags</a>
+        
+      
+    
+
+    <!-- 
+    <a class="sidebar-nav-item" href="/archive/vv1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently vv1.1.0</span>
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+      <p><a href="https://github.com/akirose"><i class="svg-icon github"></i></a>
+
+
+<a href="https://www.facebook.com/akirose1024"><i class="svg-icon facebook"></i></a>
+
+
+
+
+
+<a href="https://www.twitter.com/akirose1004"><i class="svg-icon twitter"></i></a>
+
+
+</p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Simplicity</a>
+            <small>somewhere only we know</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="page">
+  <h1 class="page-title">Projects</h1>
+  <h2 id="assetto-corsa-server-udp-plug-in">Assetto Corsa Server UDP Plug-in</h2>
+<ul>
+  <li>repository : <a href="http://github.com/akirose/ACS_Plugin" target="_blank">http://github.com/akirose/ACS_Plugin</a></li>
+  <li>requirement : Node.js &gt;= 6.2.0</li>
+  <li>UDP Datagram communication</li>
+  <li>Socket.IO - realtime monitoring</li>
+  <li>Express JS - monitoring web service</li>
+  <li>
+    <p>Bootstrap 3 - user interface</p>
+
+    <p><img src="https://cloud.githubusercontent.com/assets/6344563/17610617/ac319cd6-607a-11e6-94ff-06977d297880.png" alt="plugin" /></p>
+  </li>
+</ul>
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
