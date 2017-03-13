@@ -4,7 +4,7 @@
  <title></title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-03-13T00:50:04+00:00</updated>
+ <updated>2017-03-13T01:01:06+00:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
@@ -21,7 +21,8 @@
 
 &lt;div class=&quot;bt-video-container&quot; style=&quot;position:relative;padding-bottom:56.25%;height:auto;max-width:100%overflow:hidden&quot;&gt;&lt;iframe width=&quot;640&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/qeCt01KygDY?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
 
-&lt;p&gt;드론을 시작하면서 거의 비행하는 곳인 부곡동, 왕송호수 주변으로 비행&lt;/p&gt;
+&lt;p&gt;드론을 시작하면서 거의 비행하는 곳인 부곡동, 왕송호수 주변으로 비행
+&lt;!--more--&gt;&lt;/p&gt;
 
 &lt;p&gt;일요일에는 백운호수에서 한번 비행해볼까 싶었는데 바람이 불어서 그냥 포기함.&lt;/p&gt;
 
