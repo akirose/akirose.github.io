@@ -1,4 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-03-07T01:24:41+00:00</updated><id>http://localhost:4000//</id><title type="html">Simplicity</title><subtitle>somewhere only we know</subtitle><author><name>Aki_Rose</name></author><entry><title type="html">요즘 나의 취미 드론 비행…</title><link href="http://localhost:4000/drone/drone/" rel="alternate" type="text/html" title="요즘 나의 취미 드론 비행..." /><published>2017-03-07T00:00:00+00:00</published><updated>2017-03-07T00:00:00+00:00</updated><id>http://localhost:4000/drone/drone</id><content type="html" xml:base="http://localhost:4000/drone/drone/">&lt;p&gt;드론을 시작한 지는 이제 3개월 쯤 흘럿는데 막상 블로그에 글을 잘 안쓰게 되네…&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-03-13T00:50:04+00:00</updated><id>http://localhost:4000//</id><title type="html">Simplicity</title><subtitle>somewhere only we know</subtitle><author><name>Aki_Rose</name></author><entry><title type="html">3월 11일 의왕 부곡근린공원 주변 비행</title><link href="http://localhost:4000/drone/bugok/" rel="alternate" type="text/html" title="3월 11일 의왕 부곡근린공원 주변 비행" /><published>2017-03-11T00:00:00+00:00</published><updated>2017-03-11T00:00:00+00:00</updated><id>http://localhost:4000/drone/bugok</id><content type="html" xml:base="http://localhost:4000/drone/bugok/">&lt;style&gt;.bt-video-container iframe,.bt-video-container object,.bt-video-container embed{position:absolute;top:0;left:0;width:100%;height:100%;margin-top:0}&lt;/style&gt;
+
+&lt;div class=&quot;bt-video-container&quot; style=&quot;position:relative;padding-bottom:56.25%;height:auto;max-width:100%overflow:hidden&quot;&gt;&lt;iframe width=&quot;640&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/qeCt01KygDY?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;드론을 시작하면서 거의 비행하는 곳인 부곡동, 왕송호수 주변으로 비행&lt;/p&gt;
+
+&lt;p&gt;일요일에는 백운호수에서 한번 비행해볼까 싶었는데 바람이 불어서 그냥 포기함.&lt;/p&gt;
+
+&lt;p&gt;다음에 한번 다시 도전해봐야지…&lt;/p&gt;
+
+&lt;style&gt;.bt-video-container iframe,.bt-video-container object,.bt-video-container embed{position:absolute;top:0;left:0;width:100%;height:100%;margin-top:0}&lt;/style&gt;
+
+&lt;div class=&quot;bt-video-container&quot; style=&quot;position:relative;padding-bottom:56.25%;height:auto;max-width:100%overflow:hidden&quot;&gt;&lt;iframe width=&quot;640&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/L0vBztebU-Y?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;이건 함께 갔던 감기군의 Cheerson CX-20의 비행장면 ㅋㅋ&lt;/p&gt;</content><author><name>Aki_Rose</name></author><category term="Drone" /><category term="Hubsan H501S X4 FPV" /><category term="Drone" /><category term="Quadcopter" /><summary type="html">드론을 시작하면서 거의 비행하는 곳인 부곡동, 왕송호수 주변으로 비행
+
+일요일에는 백운호수에서 한번 비행해볼까 싶었는데 바람이 불어서 그냥 포기함.
+
+다음에 한번 다시 도전해봐야지…
+
+
+
+
+
+이건 함께 갔던 감기군의 Cheerson CX-20의 비행장면 ㅋㅋ</summary></entry><entry><title type="html">요즘 나의 취미 드론 비행…</title><link href="http://localhost:4000/drone/drone/" rel="alternate" type="text/html" title="요즘 나의 취미 드론 비행..." /><published>2017-03-07T00:00:00+00:00</published><updated>2017-03-07T00:00:00+00:00</updated><id>http://localhost:4000/drone/drone</id><content type="html" xml:base="http://localhost:4000/drone/drone/">&lt;p&gt;드론을 시작한 지는 이제 3개월 쯤 흘럿는데 막상 블로그에 글을 잘 안쓰게 되네…&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/6344563/23637477/4cb95454-031f-11e7-83a4-828efad62de8.jpg&quot; alt=&quot;Hubsan H501S X4 FPV Advanced&quot; /&gt;
 현재 내가 주력으로 사용하는 Hubsan H501S X4 FPV Advanced 되시겠다.
@@ -12,7 +36,7 @@ GPS를 갖추고 있는 센서 드론으로 Fail-safe, Return to home, Follow me
 
 &lt;style&gt;.bt-video-container iframe,.bt-video-container object,.bt-video-container embed{position:absolute;top:0;left:0;width:100%;height:100%;margin-top:0}&lt;/style&gt;
 
-&lt;div class=&quot;bt-video-container&quot; style=&quot;position:relative;padding-bottom:56.25%;height:auto;max-width:100%overflow:hidden&quot;&gt;&lt;iframe width=&quot;640&quot; height=&quot;480&quot; src=&quot;http://www.youtube.com/embed/c5nGKm3e7PY?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;</content><author><name>Aki_Rose</name></author><category term="Drone" /><category term="Hubsan H501S X4 FPV" /><category term="Drone" /><category term="Quadcopter" /><summary type="html">드론을 시작한 지는 이제 3개월 쯤 흘럿는데 막상 블로그에 글을 잘 안쓰게 되네…
+&lt;div class=&quot;bt-video-container&quot; style=&quot;position:relative;padding-bottom:56.25%;height:auto;max-width:100%overflow:hidden&quot;&gt;&lt;iframe width=&quot;640&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/c5nGKm3e7PY?rel=0&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;</content><author><name>Aki_Rose</name></author><category term="Drone" /><category term="Hubsan H501S X4 FPV" /><category term="Drone" /><category term="Quadcopter" /><summary type="html">드론을 시작한 지는 이제 3개월 쯤 흘럿는데 막상 블로그에 글을 잘 안쓰게 되네…
 
 
 현재 내가 주력으로 사용하는 Hubsan H501S X4 FPV Advanced 되시겠다.
