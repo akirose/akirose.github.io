@@ -1,5 +1,5 @@
 ---
-layout: instagram
+layout: post
 title: 왕송호수 일몰 비행
 category: Drone
 comments: true
