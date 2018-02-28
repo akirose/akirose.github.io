@@ -52,7 +52,8 @@
         serviceWorkerRegistration.pushManager.subscribe({userVisibleOnly: true})
         .then(function(subscription) {
           console.log(subscription);
-          console.log("RegistrationId is ", subscription.subscriptionId);
+          console.log("key ", subscription.getKey('p256dh'));
+          console.log("auth ", subscription.getKey('auth'))
         });
       });
     }
