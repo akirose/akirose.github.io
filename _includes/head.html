@@ -52,6 +52,12 @@
         serviceWorkerRegistration.pushManager.subscribe({userVisibleOnly: true})
         .then(function(subscription) {
           console.log(JSON.stringify(subscription));
+          if('supportedContentEncodings' in PushManager) { 
+            contentEncoding = PushManager.supportedContentEncodings.includes('aes128gcm') ? 'aes128gcm' : 'aesgcm' ; 
+          } else {
+            contentEncoding = 'aesgcm' ;  
+          }
+          console.log(contentEncoding);
         });
       });
     }
