@@ -51,9 +51,7 @@
         console.log("sw.js registered.");
         serviceWorkerRegistration.pushManager.subscribe({userVisibleOnly: true})
         .then(function(subscription) {
-          console.log(subscription);
-          console.log("key ", subscription.getKey('p256dh'));
-          console.log("auth ", subscription.getKey('auth'))
+          console.log(JSON.stringify(subscription));
         });
       });
     }
