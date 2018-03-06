@@ -48,17 +48,8 @@
     if('serviceWorker' in navigator && 'PushManager' in window) {
       navigator.serviceWorker.register('./sw.js', {scope:'./'});
       navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
-        console.log("sw.js registered.");
-        serviceWorkerRegistration.pushManager.subscribe({userVisibleOnly: true, applicationServerKey: "BJf82Fb8T4CZiSjYb_PsoSJU5HfjX09U53o7GJdf_RJGmDh27sZbcb4fWbKosgjMi5z3vHWnbxHF9CNNzjJ7y1c"})
-        .then(function(subscription) {
+        serviceWorkerRegistration.pushManager.subscribe({userVisibleOnly:true, applicationServerKey:"BJf82Fb8T4CZiSjYb_PsoSJU5HfjX09U53o7GJdf_RJGmDh27sZbcb4fWbKosgjMi5z3vHWnbxHF9CNNzjJ7y1c"}).then(function(subscription) {
           console.log(JSON.stringify(subscription));
-          console.log(subscription);
-          if('supportedContentEncodings' in PushManager) { 
-            contentEncoding = PushManager.supportedContentEncodings.includes('aes128gcm') ? 'aes128gcm' : 'aesgcm' ; 
-          } else {
-            contentEncoding = 'aesgcm' ;  
-          }
-          console.log(contentEncoding);
         });
       });
     }
