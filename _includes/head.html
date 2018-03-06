@@ -33,7 +33,7 @@
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 
   <link rel="manifest" href="/manifest.json">
-  <!-- script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
   <script>
     var OneSignal = window.OneSignal || [];
     OneSignal.push(["init", {
@@ -43,8 +43,8 @@
         enable: true
       }
     }]);
-  </script-->
-  <script type="text/javascript">
+  </script>
+  <!-- script type="text/javascript">
     if('serviceWorker' in navigator && 'PushManager' in window) {
       navigator.serviceWorker.register('./sw.js', {scope:'./'});
       navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
@@ -62,5 +62,5 @@
         });
       });
     }
-  </script>
+  </script -->
 </head>
