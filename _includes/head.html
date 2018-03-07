@@ -45,10 +45,20 @@
     }]);
   </script-->
   <script type="text/javascript">
+    function _base64ToArrayBuffer(base64) {
+      var binary_string =  window.atob(base64);
+      var len = binary_string.length;
+      var bytes = new Uint8Array( len );
+      for (var i = 0; i < len; i++)        {
+          bytes[i] = binary_string.charCodeAt(i);
+      }
+      return bytes.buffer;
+    }
+
     if('serviceWorker' in navigator && 'PushManager' in window) {
       navigator.serviceWorker.register('./sw.js', {scope:'./'});
       navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
-        serviceWorkerRegistration.pushManager.subscribe({userVisibleOnly:true, applicationServerKey:"BGBHt90FWmtQxqDmfG8yfLLvZ1iq3xOsG8lWjA5ckoD8F-hyvLrni4YLWxwWPkihFtLUkGqOx0kEgk9dUKt3NGA"})
+        serviceWorkerRegistration.pushManager.subscribe({userVisibleOnly:true, applicationServerKey:_base64ToArrayBuffer("BGBHt90FWmtQxqDmfG8yfLLvZ1iq3xOsG8lWjA5ckoD8F-hyvLrni4YLWxwWPkihFtLUkGqOx0kEgk9dUKt3NGA"}))
         .then(function(subscription) {
           console.log(JSON.stringify(subscription));
         });
