@@ -216,6 +216,7 @@ blockquote {
   margin: .8rem 0;
   color: #7a7a7a;
   border-left: .25rem solid #e5e5e5;
+  font-size: 0.8rem;
 }
 blockquote p:last-child {
   margin-bottom: 0;
@@ -223,6 +224,11 @@ blockquote p:last-child {
 blockquote.info {
   border-left: .25rem solid #dc0;
   background-color: #ffa;
+}
+blockquote.alert {
+  border-left: .25rem solid #f442d7;
+  background-color: #ffccf6;
+  color: #555;
 }
 @media (min-width: 30em) {
   blockquote {
@@ -354,6 +360,7 @@ tbody tr:nth-child(odd) th {
   margin-top: -.5rem;
   margin-bottom: 1rem;
   color: #9a9a9a;
+  font-size: 0.8em;
 }
 
 /* Related posts */
