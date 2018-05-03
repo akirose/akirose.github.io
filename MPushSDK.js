@@ -76,7 +76,7 @@
 												return _self._putDB("Subscribe", { key: "subscribe", cuid: cuid, endpoint: subscription.endpoint }).then(() => {
 													resolve(response.BODY[0]);
 												}).catch(() => {
-													var error = new Error("An error occurred during the sprocessing.");
+													var error = new Error("An error occurred during the processing.");
 													error.name = "RegistServiceAndUserError";
 													reject(error);
 												});
@@ -197,6 +197,9 @@
 				});
 			});
 		},
+		addgroup: async function(groupname) {
+			return this._sendIF("/rcv_register_usergroup.ctl", { GROUPNAME: groupname });
+		},
 		_getAuthKey: function(cuid, psid) {
 			if(sessionStorage.getItem("AUTHKEY")) {
 				return Promise.resolve(sessionStorage.getItem("AUTHKEY"));
@@ -234,6 +237,91 @@
 				}
 				xhr.open("POST", _self.receiver_url + "/asking_authorization.ctl", true);
 				xhr.send(form);
+			});
+		},
+		_sendIF: async function(URI, params = {}) {
+			if(!this.init) {
+				var error = new Error("Morpheus Web Push Library doesn't initialized.");
+				error.name = "UninitializedError";
+				return Promise.reject(error);
+			}
+
+			var _self = this;
+
+			return new Promise(function(resolve, reject) {
+				navigator.serviceWorker.ready.then(function(registration) {
+					registration.pushManager.getSubscription().then(async function(subscription) {
+						if(URI !== "/wpns_rcv_register_service_and_user.ctl") {
+							try {
+								var result = await _self._getDB("Subscribe", "subscribe");
+								params.CUID = result.cuid;
+							} catch(e) {
+								return Promise.reject(e);
+							}
+						}
+
+						params.PSID = subscription.endpoint;
+						params.DEVICE_ID = subscription.getKey("auth");
+
+						// Call I/F
+						var callIF = function(retries = 1) {
+							if(retries < 0) {
+								var error = new Error("Error occurred while adding new group.");
+								error.name = "AddGroupError"
+								return Promise.reject(error);
+							}
+							return _self._getAuthKey(((URI !== "/wpns_rcv_register_service_and_user.ctl") ? params.CUID : "TMP0"+params.CUID), params.PSID).then(function(authkey) {
+								return new Promise(function(resolve, reject) {
+									var form = new FormData();
+									form.append("AUTHKEY", authkey);
+
+									if(typeof params !== 'undefined') {
+										for(var k in params) {
+											form.append(k, params[k]);
+										}
+									}
+
+									var xhr = new XMLHttpRequest();
+									xhr.onload = function(e) {
+										if(e.target.status === 200 || e.target.status === 201) {
+											var response = JSON.parse(e.target.responseText);
+											if(response.HEADER.RESULT_CODE === "0000") {
+												resolve(response.BODY);
+											} else if(response.HEADER.RESULT_CODE === "40100") {
+												sessionStorage.removeItem("AUTHKEY");
+												return addgroup(retries-1);
+											} else {
+												var error = new Error(response.HEADER.RESULT_BODY);
+												error.name = response.HEADER.RESULT_CODE;
+												reject(error);
+											}
+										} else {
+											var error = new Error(e.target.statusText);
+											error.name = e.target.status;
+											reject(error);
+										}
+									}
+									xhr.onerror = function(e) {
+										var error = new Error("An error occurred during the processing.");
+										error.name = "UPMCAPIRequestError";
+										reject(error);
+									}
+									xhr.open("POST", _self.receiver_url + URI, true);
+									xhr.send(form);
+								});
+							});
+						};
+						callIF().then(function(response) {
+							resolve(response);
+						}).catch(function(e) {
+							reject(e);
+						});
+					}).catch(function(e) {
+						reject(e);
+					});
+				}).catch(function(e) {
+					reject(e);
+				});
 			});
 		},
 		_openDB: function(dbName) {
