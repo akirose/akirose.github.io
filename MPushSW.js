@@ -28,7 +28,7 @@ var ServiceWorker = {
 						message.icon = local.icon;
 					}
 
-					self.registration.showNotification(title, message);
+					return self.registration.showNotification(title, message);
 				});
 			} catch(e) {
 				DB.get("Options", "options").then((local) => {
@@ -42,12 +42,12 @@ var ServiceWorker = {
 					message.body = payload.aps.alert;
 					message.data = payload;
 
-					self.registration.showNotification(title, message);
+					return self.registration.showNotification(title, message);
 				});
 			}
 
 			// Send ACK to UPMC
-			ServiceWorker.sendIF('/rcv_register_sent_ack.ctl', { SEQNO: payload.mps.seqno }).catch(function(e) {});
+			return ServiceWorker.sendIF('/rcv_register_sent_ack.ctl', { SEQNO: payload.mps.seqno }).catch(function(e) { console.log(e); });
 		}());
 	},
 
@@ -83,7 +83,43 @@ var ServiceWorker = {
 		self.addEventListener('notificationclick', ServiceWorker.onNotificationClicked);
 	},
 
-	sendIF: function(url, param = null) {
+	getAuthKey: async function() {
+		var _self = this;
+		var sendAuthKeyIF = function() {
+			return new Promise(function(resolve, reject) {
+				_self.sendIF("/asking_authorization.ctl").then(function(response) {
+					DB.put("Subscribe", { key: "authkey", created: Math.floor(Date.now()/1000), authkey: response.BODY[0].AUTHKEY });
+					resolve(response.BODY[0].AUTHKEY);
+				}).catch(function(e) {
+					reject(e);
+				})
+			});
+		};
+
+		return new Promise(function(resolve, reject) {
+			DB.get("Subscribe", "authkey").then(function(result) {
+				if((result.created+3600) > Math.floor(Date.now()/1000)) {
+					sendAuthKeyIF().then(function(authkey) {
+						resolve(authkey);
+					});
+				} else {
+					resolve(result.authkey);
+				}
+			}).catch(function(e) {
+				if(e.name === 'UndefinedKey') {
+					sendAuthKeyIF().then(function(authkey) {
+						resolve(authkey);
+					});
+				} else {
+					reject(e);
+				}
+			});
+		});
+	},
+
+	sendIF: async function(url, param = null) {
+		var _self = this;
+
 		return Promise.all([DB.get("Subscribe", "subscribe"), DB.get("Options", "options"), self.registration.pushManager.getSubscription()]).then((values) => {
 			var local = Object.assign(values[0], values[1]);
 			var subscription = values[2];
@@ -99,7 +135,6 @@ var ServiceWorker = {
 			form.append("APP_ID", local.app_id);
 			form.append("CUID", local.cuid);
 			form.append("PSID", subscription.endpoint);
-			form.append("DEVICE_ID", subscription.getKey('auth'));
 			form.append("PNSID", "WPNS");
 
 			return fetch(local.receiver_url + url, {
@@ -107,6 +142,8 @@ var ServiceWorker = {
 				method: 'POST',
 				cache: 'default',
 				body: form
+			}).then(function(response) {
+				return response.json();
 			});
 		});
 	}
@@ -157,18 +194,30 @@ var DB = {
 				reject(request.error);
 			};
 		});
+	},
+	put: async function(table, key) {
+		await this._ensureDBOpen();
+		return new Promise((resolve, reject) => {
+			try {
+				var request = this.database.transaction(table, 'readwrite').objectStore(table).put(key);
+				request.onsuccess = () => {
+					resolve(key);
+				};
+				request.onerror = (e) => {
+					reject(e);
+				};
+			} catch(e) {
+			}
+		});
 	}
 };
 
-if (typeof self === "undefined" &&
-    typeof global !== "undefined") {
+if (typeof self === "undefined" && typeof global !== "undefined") {
   global.MPushWorker = ServiceWorker;
 } else {
   self.MPushWorker = ServiceWorker;
 }
 
-console.log(typeof self);
 if(typeof self !== 'undefined') {
-	console.log("Morpheus PUSH ServiceWorker running.");
 	MPushWorker.run();
 }
