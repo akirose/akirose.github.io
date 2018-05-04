@@ -12,6 +12,8 @@ var ServiceWorker = {
 
 		event.waitUntil(async function(){
 			try {
+				await ServiceWorker.sendIF('/rcv_register_sent_ack.ctl', { SEQNO: payload.mps.seqno }).catch(function(e) { console.log(e); });
+
 				var json = JSON.parse(payload.aps.alert);
 				var message = {};
 				var title = json.title || '';
@@ -45,9 +47,6 @@ var ServiceWorker = {
 					return self.registration.showNotification(title, message);
 				});
 			}
-
-			// Send ACK to UPMC
-			return ServiceWorker.sendIF('/rcv_register_sent_ack.ctl', { SEQNO: payload.mps.seqno }).catch(function(e) { console.log(e); });
 		}());
 	},
 
