@@ -1,6 +1,8 @@
 (function($) {
 	'use strict';
 
+	console.log(MPushUtil.isPushNotificationsSupported());
+	if(MPushUtil.isPushNotificationsSupported())
 	$.M = {
 		app_id: "",
 		applicationServerKey: "",
@@ -29,7 +31,7 @@
 
 			return true;
 		},
-		register: function(cuid, name) { // register service and user
+		register: function(cuid, name = "") { // register service and user
 			if(!this.init) {
 				var error = new Error("Morpheus Web Push Library doesn't initialized.");
 				error.name = "UninitializedError";
@@ -46,8 +48,7 @@
 			return navigator.serviceWorker.register('/MPushSW.js').then(function(registration) {
 				return navigator.serviceWorker.ready.then(function(registration) {
 					return registration.pushManager.subscribe({userVisibleOnly:true, applicationServerKey:_self.applicationServerKey}).then(function(subscription) {
-						var retries = 1;
-						var registServiceAndUser = function(retries) {
+						var registServiceAndUser = function(retries = 1) {
 							if(retries < 0) {
 								var error = new Error("Push notification registration error.");
 								error.name = "RegistServiceAndUserError"
@@ -74,9 +75,9 @@
 										if(e.target.status === 200 || e.target.status === 201) {
 											var response = JSON.parse(e.target.responseText);
 											if(response.HEADER.RESULT_CODE === "0000") {
-												return _self._putDB("Subscribe", { key: "subscribe", cuid: cuid, endpoint: subscription.endpoint }).then(function() {
+												return _self._putDB("Subscribe", { key: "subscribe", cuid: cuid, endpoint: subscription.endpoint }).then(() => {
 													resolve(response.BODY[0]);
-												}).catch(function() {
+												}).catch(() => {
 													var error = new Error("An error occurred during the processing.");
 													error.name = "RegistServiceAndUserError";
 													reject(error);
@@ -110,10 +111,10 @@
 							if(local.endpoint === subscription.endpoint) {
 								return Promise.resolve();
 							} else {
-								return registServiceAndUser(retries);
+								return registServiceAndUser();
 							}
 						}).catch(function(e) {
-							return registServiceAndUser(retries);
+							return registServiceAndUser();
 						});
 					});
 				}, function(error) {
@@ -121,8 +122,8 @@
 				});
 			});
 		},
-		unregisterService: async function() { // unregister service
-			return this._sendIF("/rcv_delete_service.ctl").then(function() {
+		unregisterService: async function(cuid = null) { // unregister service
+			return this._sendIF("/rcv_delete_service.ctl").then(() => {
 				navigator.serviceWorker.ready.then(function(registration) {
 					registration.unregister();
 				});
@@ -280,7 +281,6 @@
 			});
 		},
 		_openDB: function(dbName) {
-			var _self = this;
 			return new Promise((resolve, reject) => {
 				try {
 					var request = $.indexedDB.open(dbName, 1);
@@ -290,16 +290,16 @@
 				if(!request) {
 					return null;
 				}
-				request.onupgradeneeded = function() {
+				request.onupgradeneeded = () => {
 					request.result.createObjectStore("Subscribe", {keyPath:"key"});
 					request.result.createObjectStore("Options", {keyPath:"key"});
 				};
-				request.onsuccess = function {
-					_self.database = request.result;
-					_self.database.onversionchange = function() {
+				request.onsuccess = () => {
+					this.database = request.result;
+					this.database.onversionchange = function() {
 					}
 
-					resolve(_self.database);
+					resolve(this.database);
 				};
 			});
 		},
@@ -314,10 +314,10 @@
 			await this._ensureDBOpen();
 			return new Promise((resolve, reject) => {
 				var request = this.database.transaction(table).objectStore(table).get(key);
-				request.onsuccess = funciton() {
+				request.onsuccess = () => {
 					resolve(request.result);
 				};
-				request.onerror = function() {
+				request.onerror = () => {
 					reject(request.error);
 				};
 			});
@@ -327,16 +327,36 @@
 			return new Promise((resolve, reject) => {
 				try {
 					var request = this.database.transaction(table, 'readwrite').objectStore(table).put(key);
-					request.onsuccess = function() {
+					request.onsuccess = () => {
 						resolve(key);
 					};
-					request.onerror = function(e) {
+					request.onerror = (e) => {
 						reject(e);
 					};
 				} catch(e) {
 				}
 			});
 		},
+		_urlB64ToUint8Array: function(base64String) {
+		  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+		  const base64 = (base64String + padding)
+		    .replace(/\-/g, '+')
+		    .replace(/_/g, '/');
+
+		  const rawData = window.atob(base64);
+		  const outputArray = new Uint8Array(rawData.length);
+
+		  for (let i = 0; i < rawData.length; ++i) {
+		    outputArray[i] = rawData.charCodeAt(i);
+		  }
+		  return outputArray;
+		},
+		_Uint8ArrayToUrlB64: function(uint8Array) {
+			return btoa(String.fromCharCode.apply(null, new Uint8Array(uint8Array))).replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
+		},
+	}
+
+	var MPushUtil = {
 		isPushNotificationsSupported: function() {
 			if (typeof window.Promise === "undefined") {
 				return false;
@@ -388,23 +408,6 @@
 			}
 			
 			return browser;
-		},
-		_urlB64ToUint8Array: function(base64String) {
-		  const padding = '='.repeat((4 - base64String.length % 4) % 4);
-		  const base64 = (base64String + padding)
-		    .replace(/\-/g, '+')
-		    .replace(/_/g, '/');
-
-		  const rawData = window.atob(base64);
-		  const outputArray = new Uint8Array(rawData.length);
-
-		  for (let i = 0; i < rawData.length; ++i) {
-		    outputArray[i] = rawData.charCodeAt(i);
-		  }
-		  return outputArray;
-		},
-		_Uint8ArrayToUrlB64: function(uint8Array) {
-			return btoa(String.fromCharCode.apply(null, new Uint8Array(uint8Array))).replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
 		},
 		bowser: (function () {
 		  var t = true
@@ -939,4 +942,5 @@
 		  return bowser
 		})()
 	}
+
 })(window);
