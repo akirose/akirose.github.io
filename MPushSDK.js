@@ -74,9 +74,9 @@
 										if(e.target.status === 200 || e.target.status === 201) {
 											var response = JSON.parse(e.target.responseText);
 											if(response.HEADER.RESULT_CODE === "0000") {
-												return _self._putDB("Subscribe", { key: "subscribe", cuid: cuid, endpoint: subscription.endpoint }).then(() => {
+												return _self._putDB("Subscribe", { key: "subscribe", cuid: cuid, endpoint: subscription.endpoint }).then(function() {
 													resolve(response.BODY[0]);
-												}).catch(() => {
+												}).catch(function() {
 													var error = new Error("An error occurred during the processing.");
 													error.name = "RegistServiceAndUserError";
 													reject(error);
@@ -122,7 +122,7 @@
 			});
 		},
 		unregisterService: async function() { // unregister service
-			return this._sendIF("/rcv_delete_service.ctl").then(() => {
+			return this._sendIF("/rcv_delete_service.ctl").then(function() {
 				navigator.serviceWorker.ready.then(function(registration) {
 					registration.unregister();
 				});
@@ -280,6 +280,7 @@
 			});
 		},
 		_openDB: function(dbName) {
+			var _self = this;
 			return new Promise((resolve, reject) => {
 				try {
 					var request = $.indexedDB.open(dbName, 1);
@@ -289,16 +290,16 @@
 				if(!request) {
 					return null;
 				}
-				request.onupgradeneeded = () => {
+				request.onupgradeneeded = function() {
 					request.result.createObjectStore("Subscribe", {keyPath:"key"});
 					request.result.createObjectStore("Options", {keyPath:"key"});
 				};
-				request.onsuccess = () => {
-					this.database = request.result;
-					this.database.onversionchange = function() {
+				request.onsuccess = function {
+					_self.database = request.result;
+					_self.database.onversionchange = function() {
 					}
 
-					resolve(this.database);
+					resolve(_self.database);
 				};
 			});
 		},
@@ -313,10 +314,10 @@
 			await this._ensureDBOpen();
 			return new Promise((resolve, reject) => {
 				var request = this.database.transaction(table).objectStore(table).get(key);
-				request.onsuccess = () => {
+				request.onsuccess = funciton() {
 					resolve(request.result);
 				};
-				request.onerror = () => {
+				request.onerror = function() {
 					reject(request.error);
 				};
 			});
@@ -326,10 +327,10 @@
 			return new Promise((resolve, reject) => {
 				try {
 					var request = this.database.transaction(table, 'readwrite').objectStore(table).put(key);
-					request.onsuccess = () => {
+					request.onsuccess = function() {
 						resolve(key);
 					};
-					request.onerror = (e) => {
+					request.onerror = function(e) {
 						reject(e);
 					};
 				} catch(e) {
