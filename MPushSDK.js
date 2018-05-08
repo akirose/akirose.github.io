@@ -29,7 +29,7 @@
 
 			return true;
 		},
-		register: function(cuid, name = "") { // register service and user
+		register: function(cuid, name) { // register service and user
 			if(!this.init) {
 				var error = new Error("Morpheus Web Push Library doesn't initialized.");
 				error.name = "UninitializedError";
@@ -120,85 +120,30 @@
 				});
 			});
 		},
-		unregisterService: async function(cuid = null) { // unregister service
-			if(!this.init) {
-				var error = new Error("Morpheus Web Push Library doesn't initialized.");
-				error.name = "UninitializedError";
-				return Promise.reject(error);
-			}
-
-			if(!cuid) {
-				try {
-					var subscribe = await this._getDB("Subscribe", "subscribe");
-					cuid = subscribe.cuid;
-				} catch(e) {
-					return Promise.reject(e);
-				}
-			}
-
-			var _self = this;
-
-			return navigator.serviceWorker.ready.then(function(registration) {
-				return registration.pushManager.getSubscription().then(function(subscription) {
-					return subscription.unsubscribe().then(function(successful) {
-						localStorage.removeItem("endpoint");
-
-						var unregistService = function(retries = 1) {
-							if(retries < 0) {
-								var error = new Error("Push notification registration error.");
-								error.name = "RegistServiceAndUserError"
-								return Promise.reject(error);
-							}
-							return _self._getAuthKey(cuid, subscription.endpoint).then(function(authkey) {
-								return new Promise(function(resolve, reject) {
-									var form = new FormData();
-									form.append("AUTHKEY", authkey);
-									form.append("APP_ID", _self.app_id);
-									form.append("CUID", cuid);
-									form.append("DEVICE_ID", _self._Uint8ArrayToUrlB64(subscription.getKey('auth')));
-									form.append("PNSID", "WPNS");
-									form.append("PSID", subscription.endpoint);
-									form.append("PHONENUM", "");
-
-									var xhr = new XMLHttpRequest();
-									xhr.onload = function(e) {
-										if(e.target.status === 200 || e.target.status === 201) {
-											var response = JSON.parse(e.target.responseText);
-											if(response.HEADER.RESULT_CODE === "0000") {
-												resolve(response.BODY[0]);
-											} else if(response.HEADER.RESULT_CODE === "40100") {
-												sessionStorage.removeItem("AUTHKEY");
-												return registServiceAndUser(retries-1);
-											} else {
-												var error = new Error(response.HEADER.RESULT_BODY);
-												error.name = response.HEADER.RESULT_CODE;
-												reject(error);
-											}
-										} else {
-											var error = new Error(e.target.statusText);
-											error.name = e.target.status;
-											reject(error);
-										}
-									}
-									xhr.onerror = function(e) {
-										var error = new Error("An error occurred during the processing.");
-										error.name = "UnregistServiceError";
-										reject(error);
-									}
-									xhr.open("POST", _self.receiver_url + "/rcv_delete_service.ctl", true);
-									xhr.send(form);
-								});
-							});
-						}
-						return unregistService().then(function(e) {
-							return registration.unregister();
-						});
-					});
+		unregisterService: async function() { // unregister service
+			return this._sendIF("/rcv_delete_service.ctl").then(() => {
+				navigator.serviceWorker.ready.then(function(registration) {
+					registration.unregister();
 				});
 			});
 		},
-		addgroup: async function(groupname) {
+		addGroup: async function(groupname) {
 			return this._sendIF("/rcv_register_usergroup.ctl", { GROUPNAME: groupname });
+		},
+		getGroup: async function(groupseq) {
+			return this._sendIF("/rcv_get_usergroup.ctl", { GROUPSEQ: groupseq });
+		},
+		deleteGroup: async function(groupseq) {
+			return this._sendIF("/rcv_delete_usergroup.ctl", { GROUPSEQ: groupseq });
+		},
+		addGroupUser: async function(groupseq) {
+			return this._sendIF("/rcv_register_usergroup_user.ctl");
+		},
+		getGroupUser: async function(groupseq) {
+			return this._sendIF("/rcv_get_usergroup_user.ctl");
+		},
+		deleteGroupUser: async function(groupseq) {
+			return this._sendIF("/rcv_delete_usergroup_user.ctl");
 		},
 		_getAuthKey: function(cuid, psid) {
 			if(sessionStorage.getItem("AUTHKEY")) {
@@ -246,6 +191,12 @@
 				return Promise.reject(error);
 			}
 
+			if(!this.isPushNotificationsSupported()) {
+				var error = new Error("Unsupported browser.");
+				error.name = "UnsupportedBrowser";
+				return Promise.reject(error);
+			}
+
 			var _self = this;
 
 			return new Promise(function(resolve, reject) {
@@ -261,7 +212,7 @@
 						}
 
 						params.PSID = subscription.endpoint;
-						params.DEVICE_ID = subscription.getKey("auth");
+						params.DEVICE_ID = _self._Uint8ArrayToUrlB64(subscription.getKey('auth'));
 
 						// Call I/F
 						var callIF = function(retries = 1) {
@@ -273,7 +224,10 @@
 							return _self._getAuthKey(((URI !== "/wpns_rcv_register_service_and_user.ctl") ? params.CUID : "TMP0"+params.CUID), params.PSID).then(function(authkey) {
 								return new Promise(function(resolve, reject) {
 									var form = new FormData();
+									form.append("APP_ID", _self.app_id);
 									form.append("AUTHKEY", authkey);
+									form.append("PNSID", "WPNS");
+									form.append("PHONENUM", "");
 
 									if(typeof params !== 'undefined') {
 										for(var k in params) {
