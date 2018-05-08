@@ -1,7 +1,7 @@
-(function($) {
-	'use strict';
+if(('serviceWorker' in navigator && 'PushManager' in window)) {
+	(function($) {
+		'use strict';
 
-	if(('serviceWorker' in navigator && 'PushManager' in window)) {
 		$.M = {
 			app_id: "",
 			applicationServerKey: "",
@@ -939,5 +939,5 @@
 			  return bowser
 			})()
 		}
-	}
-})(window);
+	})(window);
+}
