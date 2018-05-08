@@ -46,7 +46,8 @@
 			return navigator.serviceWorker.register('/MPushSW.js').then(function(registration) {
 				return navigator.serviceWorker.ready.then(function(registration) {
 					return registration.pushManager.subscribe({userVisibleOnly:true, applicationServerKey:_self.applicationServerKey}).then(function(subscription) {
-						var registServiceAndUser = function(retries = 1) {
+						var retries = 1;
+						var registServiceAndUser = function(retries) {
 							if(retries < 0) {
 								var error = new Error("Push notification registration error.");
 								error.name = "RegistServiceAndUserError"
@@ -109,10 +110,10 @@
 							if(local.endpoint === subscription.endpoint) {
 								return Promise.resolve();
 							} else {
-								return registServiceAndUser();
+								return registServiceAndUser(retries);
 							}
 						}).catch(function(e) {
-							return registServiceAndUser();
+							return registServiceAndUser(retries);
 						});
 					});
 				}, function(error) {
