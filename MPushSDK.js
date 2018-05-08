@@ -177,6 +177,7 @@
 						}
 					}
 					xhr.onerror = function(e) {
+						console.log(e);
 						var error = new Error("An error occurred during the processing.");
 						error.name = "AskingAuthorizationError";
 						reject(error);
