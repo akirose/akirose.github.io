@@ -47,6 +47,8 @@ var ServiceWorker = {
 					return self.registration.showNotification(title, message);
 				});
 			}
+
+			return true;
 		}());
 	},
 
@@ -119,9 +121,8 @@ var ServiceWorker = {
 	sendIF: async function(url, param = null) {
 		var _self = this;
 
-		return Promise.all([DB.get("Subscribe", "subscribe"), DB.get("Options", "options"), self.registration.pushManager.getSubscription()]).then((values) => {
+		return Promise.all([DB.get("Subscribe", "subscribe"), DB.get("Options", "options")]).then((values) => {
 			var local = Object.assign(values[0], values[1]);
-			var subscription = values[2];
 
 			var form = new FormData();
 
@@ -133,7 +134,7 @@ var ServiceWorker = {
 
 			form.append("APP_ID", local.app_id);
 			form.append("CUID", local.cuid);
-			form.append("PSID", subscription.endpoint);
+			form.append("PSID", local.endpoint);
 			form.append("PNSID", "WPNS");
 
 			return fetch(local.receiver_url + url, {
