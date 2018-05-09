@@ -1,6 +1,6 @@
 if(('serviceWorker' in navigator && 'PushManager' in window)) {
 	(function($) {
-		'use strict';
+		//'use strict';
 
 		$.M = {
 			app_id: "",
@@ -30,7 +30,7 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 
 				return true;
 			},
-			register: function(cuid, name = "") { // register service and user
+			register: function(cuid, name) { // register service and user
 				if(!this.init) {
 					var error = new Error("Morpheus Web Push Library doesn't initialized.");
 					error.name = "UninitializedError";
@@ -43,11 +43,10 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 				}
 
 				var _self = this;
-
 				return navigator.serviceWorker.register('/MPushSW.js').then(function(registration) {
 					return navigator.serviceWorker.ready.then(function(registration) {
 						return registration.pushManager.subscribe({userVisibleOnly:true, applicationServerKey:_self.applicationServerKey}).then(function(subscription) {
-							var registServiceAndUser = function(retries = 1) {
+							var registServiceAndUser = function(retries) {
 								if(retries < 0) {
 									var error = new Error("Push notification registration error.");
 									error.name = "RegistServiceAndUserError"
@@ -59,7 +58,7 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 										form.append("AUTHKEY", authkey);
 										form.append("APP_ID", _self.app_id);
 										form.append("CUID", cuid);
-										form.append("CNAME", name);
+										form.append("CNAME", name || "");
 										form.append("DEVICE_ID", _self._Uint8ArrayToUrlB64(subscription.getKey('auth')));
 										form.append("APP_VER", _self.version);
 										form.append("PNSID", "WPNS");
@@ -74,9 +73,9 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 											if(e.target.status === 200 || e.target.status === 201) {
 												var response = JSON.parse(e.target.responseText);
 												if(response.HEADER.RESULT_CODE === "0000") {
-													return _self._putDB("Subscribe", { key: "subscribe", cuid: cuid, endpoint: subscription.endpoint }).then(() => {
+													return _self._putDB("Subscribe", { key: "subscribe", cuid: cuid, endpoint: subscription.endpoint }).then(function() {
 														resolve(response.BODY[0]);
-													}).catch(() => {
+													}).catch(function() {
 														var error = new Error("An error occurred during the processing.");
 														error.name = "RegistServiceAndUserError";
 														reject(error);
@@ -110,10 +109,10 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 								if(local.endpoint === subscription.endpoint) {
 									return Promise.resolve();
 								} else {
-									return registServiceAndUser();
+									return registServiceAndUser(1);
 								}
 							}).catch(function(e) {
-								return registServiceAndUser();
+								return registServiceAndUser(1);
 							});
 						});
 					}, function(error) {
@@ -121,29 +120,29 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 					});
 				});
 			},
-			unregisterService: async function(cuid = null) { // unregister service
-				return this._sendIF("/rcv_delete_service.ctl").then(() => {
+			unregisterService: function() { // unregister service
+				return this._sendIF("/rcv_delete_service.ctl").then(function() {
 					navigator.serviceWorker.ready.then(function(registration) {
 						registration.unregister();
 					});
 				});
 			},
-			addGroup: async function(groupname) {
+			addGroup: function(groupname) {
 				return this._sendIF("/rcv_register_usergroup.ctl", { GROUPNAME: groupname });
 			},
-			getGroup: async function(groupseq) {
+			getGroup: function(groupseq) {
 				return this._sendIF("/rcv_get_usergroup.ctl", { GROUPSEQ: groupseq });
 			},
-			deleteGroup: async function(groupseq) {
+			deleteGroup: function(groupseq) {
 				return this._sendIF("/rcv_delete_usergroup.ctl", { GROUPSEQ: groupseq });
 			},
-			addGroupUser: async function(groupseq) {
+			addGroupUser: function(groupseq) {
 				return this._sendIF("/rcv_register_usergroup_user.ctl");
 			},
-			getGroupUser: async function(groupseq) {
+			getGroupUser: function(groupseq) {
 				return this._sendIF("/rcv_get_usergroup_user.ctl");
 			},
-			deleteGroupUser: async function(groupseq) {
+			deleteGroupUser: function(groupseq) {
 				return this._sendIF("/rcv_delete_usergroup_user.ctl");
 			},
 			_getAuthKey: function(cuid, psid) {
@@ -177,7 +176,6 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 						}
 					}
 					xhr.onerror = function(e) {
-						console.log(e);
 						var error = new Error("An error occurred during the processing.");
 						error.name = "AskingAuthorizationError";
 						reject(error);
@@ -186,7 +184,7 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 					xhr.send(form);
 				});
 			},
-			_sendIF: async function(URI, params = {}) {
+			_sendIF: function(URI, params) {
 				if(!this.init) {
 					var error = new Error("Morpheus Web Push Library doesn't initialized.");
 					error.name = "UninitializedError";
@@ -200,13 +198,14 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 				}
 
 				var _self = this;
+				params = params || {};
 
 				return new Promise(function(resolve, reject) {
 					navigator.serviceWorker.ready.then(function(registration) {
-						registration.pushManager.getSubscription().then(async function(subscription) {
+						registration.pushManager.getSubscription().then(function(subscription) {
 							if(URI !== "/wpns_rcv_register_service_and_user.ctl") {
 								try {
-									var result = await _self._getDB("Subscribe", "subscribe");
+									var result = await ;
 									params.CUID = result.cuid;
 								} catch(e) {
 									return Promise.reject(e);
@@ -217,7 +216,7 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 							params.DEVICE_ID = _self._Uint8ArrayToUrlB64(subscription.getKey('auth'));
 
 							// Call I/F
-							var callIF = function(retries = 1) {
+							var callIF = function(retries) {
 								if(retries < 0) {
 									var error = new Error("Error occurred while adding new group.");
 									error.name = "AddGroupError"
@@ -245,7 +244,7 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 													resolve(response.BODY);
 												} else if(response.HEADER.RESULT_CODE === "40100") {
 													sessionStorage.removeItem("AUTHKEY");
-													return addgroup(retries-1);
+													return callIF(retries-1);
 												} else {
 													var error = new Error(response.HEADER.RESULT_BODY);
 													error.name = response.HEADER.RESULT_CODE;
@@ -267,9 +266,13 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 									});
 								});
 							};
-							callIF().then(function(response) {
-								resolve(response);
-							}).catch(function(e) {
+							_self._getDB("Subscribe", "subscribe").then(function(subscribe) {
+								callIF(1).then(function(response) {
+									resolve(response);
+								}).catch(function(e) {
+									reject(e);
+								});
+							}).catch(function(e){
 								reject(e);
 							});
 						}).catch(function(e) {
@@ -281,7 +284,8 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 				});
 			},
 			_openDB: function(dbName) {
-				return new Promise((resolve, reject) => {
+				var _self = this;
+				return new Promise(function(resolve, reject) {
 					try {
 						var request = $.indexedDB.open(dbName, 1);
 					} catch(e) {
@@ -290,51 +294,54 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 					if(!request) {
 						return null;
 					}
-					request.onupgradeneeded = () => {
+					request.onupgradeneeded = function() {
 						request.result.createObjectStore("Subscribe", {keyPath:"key"});
 						request.result.createObjectStore("Options", {keyPath:"key"});
 					};
-					request.onsuccess = () => {
-						this.database = request.result;
-						this.database.onversionchange = function() {
+					request.onsuccess = function() {
+						_self.database = request.result;
+						_self.database.onversionchange = function() {
 						}
 
-						resolve(this.database);
+						resolve(_self.database);
 					};
 				});
 			},
-			_ensureDBOpen: async function() {
-				if(!this.openLock) {
-					this.openLock = this._openDB("MPush");
+			_ensureDBOpen: function() {
+				var _self = this;
+				if(this.database) {
+					return Promise.resolve(this.database);
+				} else {
+					return _self._openDB("MPush");
 				}
-				await this.openLock;
-				return this.database;
 			},
-			_getDB: async function(table, key) {
-				await this._ensureDBOpen();
-				return new Promise((resolve, reject) => {
-					var request = this.database.transaction(table).objectStore(table).get(key);
-					request.onsuccess = () => {
-						resolve(request.result);
-					};
-					request.onerror = () => {
-						reject(request.error);
-					};
+			_getDB: function(table, key) {
+				return this._ensureDBOpen().then(function(database) {
+					return new Promise(function(resolve, reject) {
+						var request = database.transaction(table).objectStore(table).get(key);
+						request.onsuccess = function() {
+							resolve(request.result);
+						};
+						request.onerror = function() {
+							reject(request.error);
+						};
+					});
 				});
 			},
-			_putDB: async function(table, key) {
-				await this._ensureDBOpen();
-				return new Promise((resolve, reject) => {
-					try {
-						var request = this.database.transaction(table, 'readwrite').objectStore(table).put(key);
-						request.onsuccess = () => {
-							resolve(key);
-						};
-						request.onerror = (e) => {
-							reject(e);
-						};
-					} catch(e) {
-					}
+			_putDB: function(table, key) {
+				return this._ensureDBOpen().then(function(database) {
+					return new Promise(function(resolve, reject) {
+						try {
+							var request = database.transaction(table, 'readwrite').objectStore(table).put(key);
+							request.onsuccess = function() {
+								resolve(key);
+							};
+							request.onerror = function(e) {
+								reject(e);
+							};
+						} catch(e) {
+						}
+					});
 				});
 			},
 			isPushNotificationsSupported: function() {
