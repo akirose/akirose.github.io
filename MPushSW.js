@@ -23,7 +23,7 @@ var ServiceWorker = {
 				}
 				message.data = payload;
 
-				DB.get("Options", "options").then((local) => {
+				return DB.get("Options", "options").then((local) => {
 					if(json.hasOwnProperty('icon')) {
 						message.icon = json.icon;
 					} else if(local.hasOwnProperty("icon")) {
@@ -33,7 +33,7 @@ var ServiceWorker = {
 					return self.registration.showNotification(title, message);
 				});
 			} catch(e) {
-				DB.get("Options", "options").then((local) => {
+				return DB.get("Options", "options").then((local) => {
 					var message = {};
 					var title = local.title || '';
 
@@ -47,8 +47,6 @@ var ServiceWorker = {
 					return self.registration.showNotification(title, message);
 				});
 			}
-
-			return true;
 		}());
 	},
 
