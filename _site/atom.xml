@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title></title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2018-11-06T02:14:29+00:00</updated>
- <id>http://localhost:4000</id>
+ <link href="http://0.0.0.0:4000/atom.xml" rel="self"/>
+ <link href="http://0.0.0.0:4000/"/>
+ <updated>2018-11-06T04:40:37+00:00</updated>
+ <id>http://0.0.0.0:4000</id>
  <author>
    <name></name>
    <email></email>
@@ -14,52 +14,71 @@
  
  <entry>
    <title>반월저수지 VR</title>
-   <link href="http://localhost:4000/drone/banwol_lake_aerial_vr/"/>
+   <link href="http://0.0.0.0:4000/drone/banwol_lake_aerial_vr/"/>
    <updated>2018-05-01T00:00:00+00:00</updated>
-   <id>http://localhost:4000/drone/banwol_lake_aerial_vr</id>
-   <content type="html">&lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!4v1526260466347!6m8!1m7!1sCAoSLEFGMVFpcE5FWmFEeTE5Tlp6RXdkdFpWam40ZEVZQzNLXzRmSTd2QThRWEQw!2m2!1d37.3223411!2d126.8929083!3f0!4f0!5f0.7820865974627469&quot; width=&quot;100%&quot; height=&quot;343&quot; frameborder=&quot;0&quot; style=&quot;border:0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+   <id>http://0.0.0.0:4000/drone/banwol_lake_aerial_vr</id>
+   <content type="html">&lt;div style=&quot;position: relative; width: 100%; padding: 56.6% 0 6px;&quot;&gt;
+&lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!4v1526260466347!6m8!1m7!1sCAoSLEFGMVFpcE5FWmFEeTE5Tlp6RXdkdFpWam40ZEVZQzNLXzRmSTd2QThRWEQw!2m2!1d37.3223411!2d126.8929083!3f0!4f0!5f0.7820865974627469&quot; width=&quot;100%&quot; height=&quot;343&quot; frameborder=&quot;0&quot; style=&quot;border:0; position: absolute; top: 0; left: 0; width: 100%; height:100%;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
 </content>
  </entry>
  
  <entry>
    <title>서호공원 VR</title>
-   <link href="http://localhost:4000/drone/seoho_park_aerial_vr/"/>
+   <link href="http://0.0.0.0:4000/drone/seoho_park_aerial_vr/"/>
    <updated>2018-04-10T00:00:00+00:00</updated>
-   <id>http://localhost:4000/drone/seoho_park_aerial_vr</id>
+   <id>http://0.0.0.0:4000/drone/seoho_park_aerial_vr</id>
    <content type="html">&lt;blockquote class=&quot;alert&quot;&gt;
   &lt;p&gt;서호공원은 관제권으로 관계기관의 비행/촬영허가 하에 촬영하였습니다.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!4v1523320214054!6m8!1m7!1sCAoSLEFGMVFpcE93Y09OSC1iRnBZSUFVN0M0Y3BJT2g4VE5QQWQxS21wMEpfbmdv!2m2!1d37.27977!2d126.98817!3f0!4f0!5f0.7820865974627469&quot; width=&quot;610&quot; height=&quot;343&quot; frameborder=&quot;0&quot; style=&quot;border:0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;div style=&quot;position: relative; width: 100%; padding: 56.6% 0 6px;&quot;&gt;
+&lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!4v1523320214054!6m8!1m7!1sCAoSLEFGMVFpcE93Y09OSC1iRnBZSUFVN0M0Y3BJT2g4VE5QQWQxS21wMEpfbmdv!2m2!1d37.27977!2d126.98817!3f0!4f0!5f0.7820865974627469&quot; width=&quot;100%&quot; height=&quot;343&quot; frameborder=&quot;0&quot; style=&quot;border:0; position: absolute; top: 0; left: 0; width: 100%; height:100%;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
 </content>
  </entry>
  
  <entry>
    <title>부곡첨단산업단지 VR</title>
-   <link href="http://localhost:4000/drone/bugok_aerial_vr/"/>
+   <link href="http://0.0.0.0:4000/drone/bugok_aerial_vr/"/>
    <updated>2018-01-14T00:00:00+00:00</updated>
-   <id>http://localhost:4000/drone/bugok_aerial_vr</id>
-   <content type="html">&lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!4v1515984266448!6m8!1m7!1sCAoSLEFGMVFpcE5LcjhGVTRXSGhlT2pHem9hS0JXVUc2ZGFWNVE5RjhUR08tRy1X!2m2!1d37.325605!2d126.9392083!3f83.43028452165352!4f-13.126982615970647!5f0.7820865974627469&quot; width=&quot;610&quot; height=&quot;343&quot; frameborder=&quot;0&quot; style=&quot;border:0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+   <id>http://0.0.0.0:4000/drone/bugok_aerial_vr</id>
+   <content type="html">&lt;div style=&quot;position: relative; width: 100%; padding: 56.6% 0 6px;&quot;&gt;
+&lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!4v1515984266448!6m8!1m7!1sCAoSLEFGMVFpcE5LcjhGVTRXSGhlT2pHem9hS0JXVUc2ZGFWNVE5RjhUR08tRy1X!2m2!1d37.325605!2d126.9392083!3f83.43028452165352!4f-13.126982615970647!5f0.7820865974627469&quot; width=&quot;100%&quot; height=&quot;343&quot; frameborder=&quot;0&quot; style=&quot;border:0; position: absolute; top: 0; left: 0; width: 100%; height:100%;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
 </content>
  </entry>
  
  <entry>
    <title>왕송호수 일몰 비행</title>
-   <link href="http://localhost:4000/drone/sunset_in_wangsong_lake/"/>
+   <link href="http://0.0.0.0:4000/drone/sunset_in_wangsong_lake/"/>
    <updated>2018-01-06T00:00:00+00:00</updated>
-   <id>http://localhost:4000/drone/sunset_in_wangsong_lake</id>
-   <content type="html">&lt;blockquote class=&quot;instagram-media&quot; data-instgrm-permalink=&quot;https://www.instagram.com/p/BdtYGGTjG-G/&quot; data-instgrm-version=&quot;8&quot; style=&quot; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&quot;&gt;&lt;div style=&quot;padding:8px;&quot;&gt; &lt;div style=&quot; background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0; text-align:center; width:100%;&quot;&gt; &lt;div style=&quot; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&quot; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&quot;&gt;&lt;a href=&quot;https://www.instagram.com/p/BdtYGGTjG-G/&quot; style=&quot; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&quot; target=&quot;_blank&quot;&gt;A post shared by Minki Cho (@cmkdream)&lt;/a&gt; on &lt;time style=&quot; font-family:Arial,sans-serif; font-size:14px; line-height:17px;&quot; datetime=&quot;2018-01-09T00:43:03+00:00&quot;&gt;Jan 8, 2018 at 4:43pm PST&lt;/time&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; defer=&quot;&quot; src=&quot;//platform.instagram.com/en_US/embeds.js&quot;&gt;&lt;/script&gt;
-
-&lt;!--more--&gt;
-&lt;iframe width=&quot;610&quot; height=&quot;343&quot; src=&quot;https://www.youtube.com/embed/iTufghOJ9hw&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+   <id>http://0.0.0.0:4000/drone/sunset_in_wangsong_lake</id>
+   <content type="html">&lt;div id=&quot;carouselExampleControls&quot; class=&quot;carousel slide&quot; data-ride=&quot;carousel&quot;&gt;
+  &lt;div class=&quot;carousel-inner&quot;&gt;
+    &lt;div class=&quot;carousel-item active&quot;&gt;
+      &lt;img class=&quot;d-block w-100&quot; src=&quot;https://user-images.githubusercontent.com/6344563/48042816-bae2cc80-e1c6-11e8-87b0-d5e4b3a73d13.jpg&quot; alt=&quot;First slide&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;carousel-item&quot;&gt;
+      &lt;img class=&quot;d-block w-100&quot; src=&quot;https://user-images.githubusercontent.com/6344563/48042845-d352e700-e1c6-11e8-9df4-cb4a38316385.jpg&quot; alt=&quot;Second slide&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;a class=&quot;carousel-control-prev&quot; href=&quot;#carouselExampleControls&quot; role=&quot;button&quot; data-slide=&quot;prev&quot;&gt;
+    &lt;span class=&quot;carousel-control-prev-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;sr-only&quot;&gt;Previous&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;a class=&quot;carousel-control-next&quot; href=&quot;#carouselExampleControls&quot; role=&quot;button&quot; data-slide=&quot;next&quot;&gt;
+    &lt;span class=&quot;carousel-control-next-icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;sr-only&quot;&gt;Next&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
 </content>
  </entry>
  
  <entry>
    <title>요즘 나의 취미 드론 비행...</title>
-   <link href="http://localhost:4000/drone/drone/"/>
+   <link href="http://0.0.0.0:4000/drone/drone/"/>
    <updated>2017-03-07T00:00:00+00:00</updated>
-   <id>http://localhost:4000/drone/drone</id>
+   <id>http://0.0.0.0:4000/drone/drone</id>
    <content type="html">&lt;p&gt;드론을 시작한 지는 이제 3개월 쯤 흘럿는데 막상 블로그에 글을 잘 안쓰게 되네…&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://cloud.githubusercontent.com/assets/6344563/23637477/4cb95454-031f-11e7-83a4-828efad62de8.jpg&quot; alt=&quot;Hubsan H501S X4 FPV Advanced&quot; /&gt;
