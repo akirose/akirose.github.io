@@ -1,6 +1,6 @@
 if(('serviceWorker' in navigator && 'PushManager' in window)) {
 	(function($) {
-		//'use strict';
+		'use strict';
 
 		$.M = {
 			app_id: "",
@@ -137,13 +137,13 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 				return this._sendIF("/rcv_delete_usergroup.ctl", { GROUPSEQ: groupseq });
 			},
 			addGroupUser: function(groupseq) {
-				return this._sendIF("/rcv_register_usergroup_user.ctl");
+				return this._sendIF("/rcv_register_usergroup_user.ctl", { GROUPSEQ: groupseq });
 			},
 			getGroupUser: function(groupseq) {
-				return this._sendIF("/rcv_get_usergroup_user.ctl");
+				return this._sendIF("/rcv_get_usergroup_user.ctl", { GROUPSEQ: groupseq });
 			},
 			deleteGroupUser: function(groupseq) {
-				return this._sendIF("/rcv_delete_usergroup_user.ctl");
+				return this._sendIF("/rcv_delete_usergroup_user.ctl", { GROUPSEQ: groupseq });
 			},
 			_getAuthKey: function(cuid, psid) {
 				if(sessionStorage.getItem("AUTHKEY")) {
@@ -203,15 +203,6 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 				return new Promise(function(resolve, reject) {
 					navigator.serviceWorker.ready.then(function(registration) {
 						registration.pushManager.getSubscription().then(function(subscription) {
-							if(URI !== "/wpns_rcv_register_service_and_user.ctl") {
-								try {
-									var result = await ;
-									params.CUID = result.cuid;
-								} catch(e) {
-									return Promise.reject(e);
-								}
-							}
-
 							params.PSID = subscription.endpoint;
 							params.DEVICE_ID = _self._Uint8ArrayToUrlB64(subscription.getKey('auth'));
 
@@ -266,7 +257,11 @@ if(('serviceWorker' in navigator && 'PushManager' in window)) {
 									});
 								});
 							};
+
 							_self._getDB("Subscribe", "subscribe").then(function(subscribe) {
+								if(URI !== "/wpns_rcv_register_service_and_user.ctl") {
+									params.CUID = subscribe.cuid;
+								}
 								callIF(1).then(function(response) {
 									resolve(response);
 								}).catch(function(e) {

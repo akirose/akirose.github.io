@@ -31,40 +31,4 @@
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
-
-  <link rel="manifest" href="/manifest.json">
-  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
-  <script>
-    var OneSignal = window.OneSignal || [];
-    OneSignal.push(["init", {
-      appId: "b994044d-44b3-4b83-910a-656c552664b8",
-      autoRegister: false,
-      notifyButton: {
-        enable: true
-      }
-    }]);
-  </script>
-  <script type="text/javascript" src="/MPushSDK.js"></script>
-  <script type="text/javascript">
-    function guid() {
-      function s4() {
-        return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
-      }
-      return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-    }
-
-    M.push("com.uracle.push.demo", "https://websocket.morpheus.kr", "BGBHt90FWmtQxqDmfG8yfLLvZ1iq3xOsG8lWjA5ckoD8F-hyvLrni4YLWxwWPkihFtLUkGqOx0kEgk9dUKt3NGA", {
-      title: "Simplicity",
-      url: "https://akirose.github.io",
-      icon: "https://akirose.github.io/public/favicon.ico"
-    });
-
-    //M.addgroup("WPUserGroup").then(function(response){ console.log(response); });
-
-    M.register(guid()).then(function(){
-      console.log("PUSH Notification Subscribe successfully.")
-    }).catch(function(e) {
-      console.log(e);
-    });
-  </script>
 </head>
