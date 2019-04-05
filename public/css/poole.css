@@ -230,12 +230,6 @@ blockquote.alert {
   background-color: #ffccf6;
   color: #555;
 }
-@media (min-width: 30em) {
-  blockquote {
-    padding-right: 5rem;
-    padding-left: 1.25rem;
-  }
-}
 
 img {
   display: block;
